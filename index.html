@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" ng-app="hydra">
+<head>
+    <meta charset="utf-8" />
+    <title>Hydra App</title>
+    <!--Foundation css-->
+    <link rel="stylesheet" href="node_modules/foundation-sites/dist/foundation.min.css" type="text/css" />
+    <link rel="stylesheet" href="node_modules/foundation-sites/dist/foundation-flex.min.css" type="text/css" />
+    <link rel="stylesheet" href="node_modules/foundation-sites/dist/foundation-rtl.min.css" type="text/css" />
+    <!--Custom css-->
+    <link rel="stylesheet" href="assets/css/app.css" type="text/css" />
+    <!--Angular scripts-->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <!--Custom scripts-->
+    <script src="app/app.js"></script>
+    <script src="app/app.module.js"></script>
+    <!--Custom controllers-->
+    <script src="app/components/test/test-ctrl.js"></script>
+    <!--Custom services-->
+    <script src="app/services/test-service-svc.js"></script>
+</head>
+<body>
+    <div id="navigation-links">
+        <a ng-href="#home">Home</a>
+        <a ng-href="#test">Test</a>
+    </div>
+    <div ng-view></div>
+</body>
+</html>

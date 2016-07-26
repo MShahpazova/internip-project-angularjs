@@ -1,6 +1,0 @@
-C:\Users\iulia.parpalea\Desktop\hydra-frontend\hydra-frontend\bin\hydra-frontend.dll.config
-C:\Users\iulia.parpalea\Desktop\hydra-frontend\hydra-frontend\bin\hydra-frontend.dll
-C:\Users\iulia.parpalea\Desktop\hydra-frontend\hydra-frontend\bin\hydra-frontend.pdb
-C:\Users\iulia.parpalea\Desktop\hydra-frontend\hydra-frontend\obj\Debug\hydra-frontend.csprojResolveAssemblyReference.cache
-C:\Users\iulia.parpalea\Desktop\hydra-frontend\hydra-frontend\obj\Debug\hydra-frontend.dll
-C:\Users\iulia.parpalea\Desktop\hydra-frontend\hydra-frontend\obj\Debug\hydra-frontend.pdb
