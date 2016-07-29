@@ -8,17 +8,22 @@
   },
   "author": "FE Xoom Interns",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "angular": "^1.5.8",
     "angular-route": "^1.5.8",
     "cors": "^2.7.1",
     "foundation-sites": "^6.2.3",
+    "jquery": "^3.1.0"
+  },
+  "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-connect": "^4.2.0",
     "gulp-server-livereload": "^1.8.2",
     "gulp-sourcemap": "^1.0.1",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.13.6",
-    "jquery": "^3.1.0",
+    "through2": "^2.0.1",
+    "uglify-js": "^2.7.0",
     "vary": "^1.1.0"
   }
 }
