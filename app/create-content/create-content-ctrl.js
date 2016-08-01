@@ -1,10 +1,10 @@
 ///<reference path="../../typings/tsd.d.ts"/>
-var ctrlModule = angular.module("hydraControllers");
-var CreateContentController = (function () {
-    function CreateContentController($scope) {
-        $scope.name = "This is a blank page.";
+var ctrlModule = angular.module("hydra.controllers");
+var Process = (function () {
+    function Process($scope) {
+        name = $scope.name;
     }
-    CreateContentController.$inject = ["$scope"];
-    return CreateContentController;
+    Process.$inject = ["$scope"];
+    return Process;
 }());
-ctrlModule.controller("createContentCtrl", CreateContentController);
+ctrlModule.controller("createContentCtrl", Process);

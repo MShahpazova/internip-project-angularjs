@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" ng-app="hydra">
+
 <head>
     <meta charset="utf-8" />
     <title>Hydra App</title>
@@ -20,12 +21,16 @@
     <script src="app/components/test/test-ctrl.js"></script>
     <!--Custom services-->
     <script src="app/services/test-service-svc.js"></script>
+    <script src="app/create-content/create-content-ctrl.js"></script>
 </head>
+
 <body>
     <div id="navigation-links">
         <a ng-href="#home">Home</a>
         <a ng-href="#test">Test</a>
+        <a ng-href="#create-content">Create content</a>
     </div>
     <div ng-view></div>
 </body>
+
 </html>

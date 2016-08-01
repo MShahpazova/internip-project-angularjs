@@ -11,6 +11,10 @@ var app = angular.module("hydra", ['ngRoute', 'hydra.services', 'hydra.controlle
         templateUrl: 'app/components/test/test-view.html',
         controller: 'testController'
     })
+        .when('/create-content', {
+        templateUrl: 'app/create-content/create-content.html',
+        controller: 'createContentCtrl'
+    })
         .otherwise({
         redirectTo: '/'
     });
