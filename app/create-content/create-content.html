@@ -1,11 +1,35 @@
-<div class="row">
-    <div class="small-3 columns">
-        <label for="right-label" class="text-right">Name of the process:</label>
+<section class="process-name">
+    <div class="row">
+        <div class="small-3 large-3 columns">
+            <label for="right-label" class="text-right">Name of the process:</label>
+        </div>
+        <div class="small-9 columns">
+            <input type="text" ng-model="vm.name" placeholder="Type a name of the process">
+        </div>
     </div>
-    <div class="small-9 columns">
-        <input type="text" ng-model="name" placeholder="Type a name of the process">
-    </div>
-</div>
+</section>
+
+<br/>
+<br/>
+
+<section class="prerequisites">
+    <div class="row">
+        <div class="small-3 large-3 columns">
+            <label for="right-label" class="text-right">Prerequisites</label>
+        </div>
+
+        <select class="select small-3 columns" ng-options="document.name as document.name for document in vm.documents" ng-model="selected" size="5">
+         </select>
 
 
-<h2> {{name}} </h2>
+        <div class="buttons small-2 columns">
+            <button type="button" class="button tiny">select</button>
+            <button type="button" class="button tiny">undo</button>
+        </div>
+
+        <select class="select small-3 columns" ng-options="document.name as document.name for document in vm.documents" ng-model="selected" size="5">
+        </select>
+
+
+    </div>
+</section>
