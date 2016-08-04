@@ -5,9 +5,9 @@ var Service = (function () {
         this.$http = $http;
     }
     Service.prototype.getDocuments = function () {
-        return this.$http.get("app/documents.json").then(function (response) {
-            return response.data;
-        });
+        //  return this.$http.get("app/documents.json").then(function(response){
+        //      return response.data;
+        //  })
     };
     Service.$inject = ["$http"];
     return Service;

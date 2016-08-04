@@ -23,8 +23,24 @@
 
 
         <div class="buttons small-2 columns">
-            <button type="button" class="button tiny">select</button>
+            <button ng-click="selectDocuments" type="button" class="button tiny">select</button>
             <button type="button" class="button tiny">undo</button>
+        </div>
+
+        <div>
+
+            <div style="border: 1px solid; " ng-repeat="doc in vm.selectedDocuments">
+                <div>Type: {{doc.documentType}}</div>
+                <div>Name: <input type="text" ng-model="doc.name" /></div>
+                <div>numberOfCopies:
+                    <input type="text" ng-model="doc.numberOfCopies" />
+                    <a href="javascript:" ng-click="vm.decreaseNumber(doc)">-</a>
+                    <a href="javascript:" ng-click="vm.increaseNumber(doc)">+</a>
+                </div>
+                <div>
+                    <a href="javascript:" ng-click="vm.removeDocument(doc)">Remove</a>
+                </div>
+            </div>
         </div>
 
         <select class="select small-3 columns" ng-options="document.name as document.name for document in vm.documents" ng-model="selected" size="5">

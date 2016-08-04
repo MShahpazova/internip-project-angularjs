@@ -1,1 +1,3 @@
-[{ "name": "Maria", "number": 1, "documentType": "Identity" }, { "name": "Ivana" }]
+[{ "name": "Maria", "numberOfCopies": 1, "isSelected": "false", "documentType": "Passport" },
+    { "name": "Maria", "numberOfCopies": 1, "isSelected": "false", "documentType": "Passport" }
+]

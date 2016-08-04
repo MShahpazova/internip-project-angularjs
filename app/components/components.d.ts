@@ -1,15 +1,17 @@
 ///<reference path="../../typings/tsd.d.ts"/>
 
 
-    interface IDocument {
-        name: string
-        numberOfCopies: number
-        isSelected: boolean
-        documentType: Type
+interface IDocument {
+    name: string
+    documentType: Type
+    isSelected: boolean
+    numberOfCopies: number
 }
-    
+
 declare enum Type {
-    Identity,
-    MarriageDocuments,
-  
+    original,
+    copy,
+    legalizedCopy
 }
+
+
