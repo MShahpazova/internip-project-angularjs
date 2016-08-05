@@ -3,44 +3,52 @@
 var ctrlModule = angular.module("hydra.controllers");
 
 class CreateContentCtrl {
-    documents: Array<IDocument> =  [
-            {
-                name: "Passport",
-                documentType: 2,
-                isSelected: true,
-                numberOfCopies: 3
-            },
+    documents = [{
+        name: "Passport",
+        documentType: 2,
+        isSelected: true,
+        numberOfCopies: 3
+    }, {
+        name: "National ID",
+        documentType: 2,
+        numberOfCopies: 3,
+        isSelected: true,
+    }];
 
-            {
-                name: "National ID",
-                documentType: 2,
-                numberOfCopies: 3,
-                isSelected: true,
-            }
-        ];
-    selectedDocuments: Array<IDocument> 
-    currentSelectedDocuments: Array<IDocument> = [];
+    selectedDocuments: Array<IDocument>;
+    addedDocuments: Array<IDocument> = [];
     name: string;
     private dataService;
 
-    static $inject = ["$scope", "service"]
+    static $inject = ["$scope", "service"];
+
+    // attaching things to the $scope
+    addSelected() {
+        // has to concat to this.selectedDocuments in the this.addedDocuments
+        // our brand new documents
+        let copiedDocuments = angular.copy(this.selectedDocuments);
+        this.addedDocuments = this.addedDocuments.concat(copiedDocuments);
+    }
+
+    removeDocument(document) {
+        let index = this.addedDocuments.indexOf(document);
+        this.addedDocuments.splice(index, 1);
+    }
 
     constructor($scope, service, documents) {
-        
         // $scope.name = this.name;
-        //this.name = $scope.name;
-        
+        // this.name = $scope.name;
+
         // this.dataService = service;
         // var self = this;
         // console.log(this);
         // documents = service.getDocuments();
+        // promises
         // this.dataService.getDocuments().then(function (documents) {
         //     console.log(this);
         //     self.documents = documents;
         // });
-        function select(currentSelectedDocuments) {
-            //move currentlySelected documents to the selected documents array
-        }
+        // vm is view-model
         $scope.vm = this;
     }
 }
