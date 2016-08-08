@@ -6,6 +6,14 @@ interface IDocument {
     documentType: Type
     isSelected: boolean
     numberOfCopies: number
+
+
+    needOriginal: boolean
+    needCopy: boolean
+    needLegalizedCopy: boolean
+
+    countOfCopies: number,
+    countOfLegalizedCopies: number
 }
 
 declare enum Type {

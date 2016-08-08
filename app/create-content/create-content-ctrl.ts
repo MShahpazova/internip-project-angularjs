@@ -1,7 +1,11 @@
 ///<reference path="../../typings/tsd.d.ts"/>
 ///<reference path="../components/components.d.ts"/>
 var ctrlModule = angular.module("hydra.controllers");
-
+//todo: validate that we don't add same documents to the selected documents
+//todo: validate that number of copies is a positive number
+//todo: create only one box for all the selected documents
+//todo: number of copies to appear only when document isn't an original
+//todo: should i add every property I set as a field in the class of the controller 
 class CreateContentCtrl {
     documents = [{
         name: "Passport",
@@ -18,7 +22,8 @@ class CreateContentCtrl {
     selectedDocuments: Array<IDocument>;
     addedDocuments: Array<IDocument> = [];
     name: string;
-    private dataService;
+
+    private dataService;    
 
     static $inject = ["$scope", "service"];
 
@@ -27,9 +32,30 @@ class CreateContentCtrl {
         // has to concat to this.selectedDocuments in the this.addedDocuments
         // our brand new documents
         let copiedDocuments = angular.copy(this.selectedDocuments);
+        if (this.addedDocuments.length >= 1) {
+            
+        }
         this.addedDocuments = this.addedDocuments.concat(copiedDocuments);
+        
     }
 
+    checkForDuplicateItems(addedItems, newItems) {
+        // if (condition) {
+            
+        // }
+        for (var i = 0; i < addedItems.length; i++) {
+            var document = addedItems[i].name;
+            for (var j = 0; j < newItems.length; j++) {
+                var documentToBeAdded = newItems[j];
+                if (document === documentToBeAdded) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+    }
     removeDocument(document) {
         let index = this.addedDocuments.indexOf(document);
         this.addedDocuments.splice(index, 1);
@@ -49,6 +75,7 @@ class CreateContentCtrl {
         //     self.documents = documents;
         // });
         // vm is view-model
+        debugger
         $scope.vm = this;
     }
 }
