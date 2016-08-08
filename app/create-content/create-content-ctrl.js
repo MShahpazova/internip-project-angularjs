@@ -45,8 +45,8 @@ var CreateContentCtrl = (function () {
         this.addedDocuments = this.addedDocuments.concat(copiedDocuments);
     };
     CreateContentCtrl.prototype.checkForDuplicateItems = function (addedItems, newItems) {
-        if (condition) {
-        }
+        // if (condition) {
+        // }
         for (var i = 0; i < addedItems.length; i++) {
             var document = addedItems[i].name;
             for (var j = 0; j < newItems.length; j++) {
