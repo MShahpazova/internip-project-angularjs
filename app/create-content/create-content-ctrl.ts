@@ -13,47 +13,51 @@ class CreateContentCtrl {
         isSelected: true,
         numberOfCopies: 3
     }, {
-        name: "National ID",
-        documentType: 2,
-        numberOfCopies: 3,
-        isSelected: true,
-    }];
+            name: "National ID",
+            documentType: 2,
+            numberOfCopies: 3,
+            isSelected: true,
+        }];
 
     selectedDocuments: Array<IDocument>;
     addedDocuments: Array<IDocument> = [];
     name: string;
 
-    private dataService;    
+    private dataService;
 
     static $inject = ["$scope", "service"];
 
     // attaching things to the $scope
+    //check for duplicate items
+    if (condition) {
+        
+    }
     addSelected() {
         // has to concat to this.selectedDocuments in the this.addedDocuments
         // our brand new documents
         let copiedDocuments = angular.copy(this.selectedDocuments);
-        if (this.addedDocuments.length >= 1) {
-            
-        }
+
         this.addedDocuments = this.addedDocuments.concat(copiedDocuments);
-        
+
+          
+
     }
 
-    checkForDuplicateItems(addedItems, newItems) {
-        // if (condition) {
-            
-        // }
-        for (var i = 0; i < addedItems.length; i++) {
-            var document = addedItems[i].name;
-            for (var j = 0; j < newItems.length; j++) {
-                var documentToBeAdded = newItems[j];
-                if (document === documentToBeAdded) {
-                    return true;
-                }
-                else {
-                    return false;
+
+      checkForDuplicateItems = function(addedItems, newItems) {
+        //check if there are any items added
+        if (this.addedDocuments.length >= 1) {
+            //then loop through items
+            for (var i = 0; i < addedItems.length; i++) {
+                var document = addedItems[i].name;
+                for (var j = 0; j < newItems.length; j++) {
+                    var documentToBeAdded = newItems[j];
+                    if (document === documentToBeAdded) {
+                        return false;
+                    }
                 }
             }
+            return true;
         }
     }
     removeDocument(document) {
@@ -62,6 +66,7 @@ class CreateContentCtrl {
     }
 
     constructor($scope, service, documents) {
+        
         // $scope.name = this.name;
         // this.name = $scope.name;
 
