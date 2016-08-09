@@ -11,7 +11,7 @@ interface IDocument {
     needOriginal: boolean
     needCopy: boolean
     needLegalizedCopy: boolean
-
+    toDelete: boolean
     countOfCopies: number,
     countOfLegalizedCopies: number
 }

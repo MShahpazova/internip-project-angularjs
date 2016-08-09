@@ -19,7 +19,7 @@
         <select class="select small-3 columns" ng-options="document as document.name for document in vm.documents" ng-model="vm.selectedDocuments" size="5" multiple style="width: 100%; height: 100px">
          </select>
 
-        <div class="buttons small-2 columns">
+        <div class="button-group stacked small-1">
             <button class="button tiny" ng-click="vm.addSelected()">
                 Select
             </button>
@@ -28,15 +28,16 @@
             </button>
         </div>
 
-        <table style="max-height: 572px; overflow-y: scroll;">
-            <tr style="border: 1px solid;" ng-repeat="doc in vm.addedDocuments">
+
+        <table class="small-5">
+            <tr style="border: 1px solid;" ng-repeat="doc in vm.addedDocuments" ng-model="vm.documentsTotoDelete">
                 <!-- <div>Type: {{doc.documentType}}</div> -->
-                <td>{{doc.name}}</td>
+                <td ng-click="select()" class="active">{{doc.name}}</td>
                 <td>
                     <label>
+                        <input type="checkbox" ng-model="doc.isOriginal">
                         <span class="custom checkbox">Original</span>
                     </label>
-                    <input type="checkbox" ng-model="doc.isOriginal">
                 </td>
                 <td><label>
                         <input type="checkbox" ng-model="doc.needCopy">
@@ -46,8 +47,7 @@
                 </td>
                 <td>
                     <label>
-                        <input type="checkbox"
-                               ng-model="doc.needLegalizedCopy">
+                        <input type="checkbox" ng-model="doc.needLegalizedCopy">
 
                         <span class="custom checkbox">Legalized Copy</span>
                     </label>

@@ -29,6 +29,7 @@ class CreateContentCtrl {
 
     selectedDocuments: Array<IDocument>;
     addedDocuments: Array<IDocument> = [];
+    documentsToDelete: Array<IDocument> = [];
     name: string;
 
     private dataService;
