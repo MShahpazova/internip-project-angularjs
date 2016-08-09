@@ -1,8 +1,6 @@
 ///<reference path="../../typings/tsd.d.ts"/>
 ///<reference path="../components/components.d.ts"/>
 var ctrlModule = angular.module("hydra.controllers");
-//todo: validate that we don't add same documents to the selected documents
-//todo: validate that number of copies is a positive number
 //todo: create only one box for all the selected documents
 //todo: number of copies to appear only when document isn't an original
 //todo: should i add every property I set as a field in the class of the controller 
@@ -14,6 +12,16 @@ class CreateContentCtrl {
         numberOfCopies: 3
     }, {
             name: "National ID",
+            documentType: 2,
+            numberOfCopies: 3,
+            isSelected: true,
+        }, {
+            name: "Driving licence",
+            documentType: 2,
+            numberOfCopies: 3,
+            isSelected: true,
+        }, {
+            name: "Marriage licence",
             documentType: 2,
             numberOfCopies: 3,
             isSelected: true,
@@ -29,33 +37,35 @@ class CreateContentCtrl {
 
     // attaching things to the $scope
     //check for duplicate items
-    if (condition) {
-        
-    }
+
     addSelected() {
         // has to concat to this.selectedDocuments in the this.addedDocuments
         // our brand new documents
         let copiedDocuments = angular.copy(this.selectedDocuments);
-        this.addedDocuments = this.addedDocuments.concat(copiedDocuments);
+         if (this.checkForDuplicateDocuments()) {
+            this.addedDocuments = this.addedDocuments.concat(copiedDocuments);
+         }
     }
 
-
-      checkForDuplicateDocuments = function(addedItems, newItems) {
+      checkForDuplicateDocuments = function() {
         //check if there are any items added
-        if (this.addedDocuments.length >= 1) {
+        
+        if (this.addedDocuments.length > 0) {
             //then loop through items
-            for (var i = 0; i < addedItems.length; i++) {
-                var document = addedItems[i].name;
-                for (var j = 0; j < newItems.length; j++) {
-                    var documentToBeAdded = newItems[j];
-                    if (document === documentToBeAdded) {
+            for (var i = 0; i < this.addedDocuments.length; i++) {
+                var documentName = this.addedDocuments[i].name;
+                for (var j = 0; j < this.selectedDocuments.length; j++) {
+                    var documentToBeAdded = this.selectedDocuments[j];
+                    if (documentName === documentToBeAdded.name) {
                         return false;
                     }
                 }
             }
             return true;
         }
+         return true;
     }
+
     removeDocument(document) {
         let index = this.addedDocuments.indexOf(document);
         this.addedDocuments.splice(index, 1);
@@ -76,7 +86,6 @@ class CreateContentCtrl {
         //     self.documents = documents;
         // });
         // vm is view-model
-        debugger
         $scope.vm = this;
     }
 }
