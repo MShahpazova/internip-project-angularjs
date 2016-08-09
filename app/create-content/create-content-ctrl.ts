@@ -39,8 +39,6 @@ class CreateContentCtrl {
 
         this.addedDocuments = this.addedDocuments.concat(copiedDocuments);
 
-          
-
     }
 
 
