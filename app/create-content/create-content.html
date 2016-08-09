@@ -42,7 +42,7 @@
                         <input type="checkbox" ng-model="doc.needCopy">
                         <span class="custom checkbox">Copy</span>
                     </label>
-                    <input type="number" ng-model="doc.numberOfCopies" ng-show="doc.needCopy" min="1">
+                    <input class="small-2 large-2 columns" type="number" ng-model="doc.numberOfCopies" ng-show="doc.needCopy" min="1">
                 </td>
                 <td>
                     <label>
@@ -51,9 +51,8 @@
 
                         <span class="custom checkbox">Legalized Copy</span>
                     </label>
-                    <input type="number" ng-model="doc.numberOfLegalizedCopies" ng-show="doc.needLegalizedCopy" min="1">
+                    <input class="small-2 large-2 columns" type="number" ng-model="doc.numberOfLegalizedCopies" ng-show="doc.needLegalizedCopy" min="1">
                 </td>
-
             </tr>
         </table>
     </div>

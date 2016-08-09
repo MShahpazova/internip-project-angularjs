@@ -4,33 +4,37 @@ var ctrlModule = angular.module("hydra.controllers");
 //todo: create only one box for all the selected documents
 //todo: number of copies to appear only when document isn't an original
 //todo: should i add every property I set as a field in the class of the controller 
-var CreateContentCtrl = (function () {
+var CreateContentCtrl = (function() {
     function CreateContentCtrl($scope, service, documents) {
         // $scope.name = this.name;
         // this.name = $scope.name;
         this.documents = [{
-                name: "Passport",
-                documentType: 2,
-                isSelected: true,
-                numberOfCopies: 3
-            }, {
-                name: "National ID",
-                documentType: 2,
-                numberOfCopies: 3,
-                isSelected: true
-            }, {
-                name: "Driving licence",
-                documentType: 2,
-                numberOfCopies: 3,
-                isSelected: true
-            }, {
-                name: "Marriage licence",
-                documentType: 2,
-                numberOfCopies: 3,
-                isSelected: true
-            }];
+            name: "Passport",
+            documentType: 2,
+            isSelected: true,
+            numberOfCopies: 1,
+            numberOfLegalizedCopies: 1
+        }, {
+            name: "National ID",
+            documentType: 2,
+            numberOfCopies: 1,
+            numberOfLegalizedCopies: 1,
+            isSelected: true
+        }, {
+            name: "Driving licence",
+            documentType: 2,
+            numberOfCopies: 1,
+            numberOfLegalizedCopies: 1,
+            isSelected: true
+        }, {
+            name: "Marriage licence",
+            documentType: 2,
+            numberOfCopies: 1,
+            numberOfLegalizedCopies: 1,
+            isSelected: true
+        }];
         this.addedDocuments = [];
-        this.checkForDuplicateDocuments = function () {
+        this.checkForDuplicateDocuments = function() {
             //check if there are any items added
             if (this.addedDocuments.length > 0) {
                 //then loop through items
@@ -61,7 +65,7 @@ var CreateContentCtrl = (function () {
     }
     // attaching things to the $scope
     //check for duplicate items
-    CreateContentCtrl.prototype.addSelected = function () {
+    CreateContentCtrl.prototype.addSelected = function() {
         // has to concat to this.selectedDocuments in the this.addedDocuments
         // our brand new documents
         var copiedDocuments = angular.copy(this.selectedDocuments);
@@ -69,7 +73,7 @@ var CreateContentCtrl = (function () {
             this.addedDocuments = this.addedDocuments.concat(copiedDocuments);
         }
     };
-    CreateContentCtrl.prototype.removeDocument = function (document) {
+    CreateContentCtrl.prototype.removeDocument = function(document) {
         var index = this.addedDocuments.indexOf(document);
         this.addedDocuments.splice(index, 1);
     };

@@ -10,20 +10,20 @@ class CreateContentCtrl {
         documentType: 2,
         isSelected: true,
         numberOfCopies: 3
-    }, {
+       }, {
             name: "National ID",
             documentType: 2,
-            numberOfCopies: 3,
+            numberOfCopies: 1,
             isSelected: true,
         }, {
             name: "Driving licence",
             documentType: 2,
-            numberOfCopies: 3,
+            numberOfCopies: 1,
             isSelected: true,
         }, {
             name: "Marriage licence",
             documentType: 2,
-            numberOfCopies: 3,
+            numberOfCopies: 1,
             isSelected: true,
         }];
 
