@@ -36,13 +36,11 @@ class CreateContentCtrl {
         // has to concat to this.selectedDocuments in the this.addedDocuments
         // our brand new documents
         let copiedDocuments = angular.copy(this.selectedDocuments);
-
         this.addedDocuments = this.addedDocuments.concat(copiedDocuments);
-
     }
 
 
-      checkForDuplicateItems = function(addedItems, newItems) {
+      checkForDuplicateDocuments = function(addedItems, newItems) {
         //check if there are any items added
         if (this.addedDocuments.length >= 1) {
             //then loop through items
