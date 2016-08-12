@@ -5,3 +5,13 @@
 span {
     font-style: italic;
 }
+
+.selected {
+    /*background: #c8c8c8;*/
+    background: fuchsia !important
+}
+
+
+/*table tr:nth-of-type(even) {
+    background: transparent !important;
+}*/

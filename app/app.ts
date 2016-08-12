@@ -17,8 +17,8 @@ var app = angular.module("hydra", ['ngRoute','hydra.services', 'hydra.controller
                 controller:  'createContentCtrl'
             })
             .otherwise({
-                redirectTo: '/'
-            })
+                redirectTo: '/create-content'
+            });
     })
 //CORS config
 .run(function($http){

@@ -23,33 +23,35 @@
             <button class="button tiny" ng-click="vm.addSelected()">
                 Select
             </button>
-            <button class="button tiny" ng-click="vm.removeDocument(doc)">
+            <button class="button tiny" ng-click="vm.deleteDocuments()">
                 Remove
             </button>
         </div>
 
-
         <table class="small-5">
-            <tr style="border: 1px solid;" ng-repeat="doc in vm.addedDocuments" ng-model="vm.documentsTotoDelete">
+            <!--<tr style="" ng-repeat="doc in vm.addedDocuments" ng-class="{selected: vm.isToDelete(doc)}" ng-click="vm.selectToDelete(doc)">-->
+            <tr style="" ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isToDelete}">
                 <!-- <div>Type: {{doc.documentType}}</div> -->
-                <td ng-click="select()" class="active">{{doc.name}}</td>
+                <td ng-click="vm.setBeforeDeleting(doc)">{{doc.name}}</td>
+                <td>{{doc.isToDelete}}</td>
+                <!--<td ng-click="select(doc) ">{{doc.name}}</td>-->
                 <td>
                     <label>
                         <input type="checkbox" ng-model="doc.isOriginal">
-                        <span class="custom checkbox">Original</span>
+                        <span class="custom checkbox">Original</span> 
                     </label>
                 </td>
                 <td><label>
                         <input type="checkbox" ng-model="doc.needCopy">
                         <span class="custom checkbox">Copy</span>
                     </label>
-                    <input class="small-2 large-2 columns" type="number" ng-model="doc.numberOfCopies" ng-show="doc.needCopy" min="1">
+                    <input class="small-2 large-2 columns " type="number" ng-model="doc.numberOfCopies" ng-show="doc.needCopy" min="1">
                 </td>
                 <td>
                     <label>
                         <input type="checkbox" ng-model="doc.needLegalizedCopy">
 
-                        <span class="custom checkbox">Legalized Copy</span>
+                        <span class="custom checkbox ">Legalized Copy</span>
                     </label>
                     <input class="small-2 large-2 columns" type="number" ng-model="doc.numberOfLegalizedCopies" ng-show="doc.needLegalizedCopy" min="1">
                 </td>
@@ -58,4 +60,4 @@
     </div>
 </section>
 
-<!--ng-show="doc.needLegalizedCopy"-->
+<!--ng-show="doc.needLegalizedCopy "-->
