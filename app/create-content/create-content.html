@@ -1,63 +1,65 @@
-<section class="process-name">
-    <div class="row">
-        <div class="small-3 large-3 columns">
-            <label for="right-label" class="text-right">Name of the process:</label>
-        </div>
-        <div class="small-9 columns">
-            <input type="text" ng-model="vm.name" placeholder="Type a name of the process">
-        </div>
+<div class="row">
+    <div class="small-2 medium-2 large-2 columns">
+        <label for="right-label" class="text-right">Name of the process:</label>
     </div>
-</section>
-<br />
-<br />
-<section class="prerequisites">
-    <div class="row">
-        <div class="small-3 large-3 columns">
-            <label for="right-label" class="text-right">Prerequisites</label>
-        </div>
+    <div class="small-5 medium-5 large-5 columns">
+        <input type="text" ng-model="vm.name" placeholder="Type a name of the process">
+    </div>
+</div>
 
-        <select class="select small-3 columns" ng-options="document as document.name for document in vm.documents" ng-model="vm.selectedDocuments" size="5" multiple style="width: 100%; height: 100px">
+<div class="row">
+    <div class="small-2 medium-2 large-2 columns">
+        <label for="right-label" class="text-right">Prerequisites</label>
+    </div>
+    <div class="small-2 medium-2 large-2 columns">
+        <select class="select" ng-options="document as document.name for document in vm.documents" ng-model="vm.selectedDocuments" size="5" multiple>
          </select>
+    </div>
+    <div class="small-1 columns">
+        <span class="button-group stacked">
 
-        <div class="button-group stacked small-1">
             <button class="button tiny" ng-click="vm.addSelected()">
                 Select
             </button>
             <button class="button tiny" ng-click="vm.deleteDocuments()">
                 Remove
             </button>
-        </div>
-
-        <table class="small-5">
-            <!--<tr style="" ng-repeat="doc in vm.addedDocuments" ng-class="{selected: vm.isToDelete(doc)}" ng-click="vm.selectToDelete(doc)">-->
-            <tr style="" ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isToDelete}">
-                <!-- <div>Type: {{doc.documentType}}</div> -->
-                <td ng-click="vm.markToDelete(doc)">{{doc.name}}</td>
-                <td>{{doc.isToDelete}}</td>
-                <!--<td ng-click="select(doc) ">{{doc.name}}</td>-->
-                <td>
-                    <label>
+        </span>
+    </div>
+    <table class="small-7">
+        <!--<tr style="" ng-repeat="doc in vm.addedDocuments" ng-class="{selected: vm.isToDelete(doc)}" ng-click="vm.selectToDelete(doc)">-->
+        <tr style="" ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isToDelete}">
+            <!-- <div>Type: {{doc.documentType}}</div> -->
+            <td ng-click="vm.markToDelete(doc)">{{doc.name}}</td>
+            <td>{{doc.isToDelete}}</td>
+            <!--<td ng-click="select(doc) ">{{doc.name}}</td>-->
+            <td>
+                <label>
                         <input type="checkbox" ng-model="doc.isOriginal">
                         <span class="custom checkbox">Original</span> 
                     </label>
-                </td>
-                <td><label>
+            </td>
+            <td><label>
                         <input type="checkbox" ng-model="doc.needCopy">
                         <span class="custom checkbox">Copy</span>
                     </label>
-                    <input class="small-2 large-2 columns " type="number" ng-model="doc.numberOfCopies" ng-show="doc.needCopy" min="1">
-                </td>
-                <td>
-                    <label>
+                <input class="columns " type="number" ng-model="doc.numberOfCopies" ng-show="doc.needCopy" min="1">
+            </td>
+            <td>
+                <label>
                         <input type="checkbox" ng-model="doc.needLegalizedCopy">
 
                         <span class="custom checkbox ">Legalized Copy</span>
                     </label>
-                    <input class="small-2 large-2 columns" type="number" ng-model="doc.numberOfLegalizedCopies" ng-show="doc.needLegalizedCopy" min="1">
-                </td>
-            </tr>
-        </table>
+                <input class="columns" type="number" ng-model="doc.numberOfLegalizedCopies" ng-show="doc.needLegalizedCopy" min="1">
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="row">
+    <div class="small-3 medium-3 large-3 columns">
     </div>
-</section>
+    <div class="small-5 medium-5 large-5 columns">
 
-<!--ng-show="doc.needLegalizedCopy "-->
+    </div>
+</div>
