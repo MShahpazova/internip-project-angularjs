@@ -13,8 +13,36 @@ interface IDocument {
     countOfLegalizedCopies: number;
 }
 
+interface IStep {
+    action: StepAction,
+    document: StepDocument,
+    location: StepLocation,
+    note: string,
+
+    feeAmount: number
+}
+
 declare enum Type {
     original,
     copy,
     legalizedCopy
+}
+
+declare enum StepAction{
+    Pay,
+    Submit,
+    Sign
+}
+
+declare enum StepDocument {
+    Passport,
+    DrivingLicense,
+    ID,
+    BirthCertificate
+}
+
+declare enum StepLocation {
+    CityHall,
+    CIC,
+    PoliceStation
 }

@@ -11,7 +11,27 @@ span {
     background: fuchsia !important
 }
 
+#container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 700px;
+    height: 300px;
+    border: solid grey;
+}
 
-/*table tr:nth-of-type(even) {
-    background: transparent !important;
+#circle {
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: solid fuchsia;
+    /*background: fuchsia;*/
+}
+
+
+/*#element {
+    width: 100px;
+    height: 200px;
+    border: solid grey;
 }*/
