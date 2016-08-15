@@ -29,7 +29,7 @@ var CreateContentCtrl = (function () {
                 numberOfCopies: 1,
                 isSelected: true,
             }];
-        this.addedDocuments = []; //target array
+        this.addedDocuments = []; // target array
         this.documentsToDelete = [];
         // this.dataService = service;
         // var self = this;
@@ -53,13 +53,11 @@ var CreateContentCtrl = (function () {
     //     console.log("exp evalueted");
     //     return this.documentsToDelete.map(doc=> doc.name).indexOf(doc.name) >= 0;
     // }
-    CreateContentCtrl.prototype.isToDelete = function (doc) {
+    CreateContentCtrl.prototype.markToDelete = function (doc) {
         doc.isToDelete = !doc.isToDelete;
     };
-    CreateContentCtrl.prototype.setBeforeDeleting = function (doc) {
-        this.isToDelete(doc);
-        console.log("select to delete");
-        this.documentsToDelete.push(doc);
+    CreateContentCtrl.prototype.deleteDocuments = function () {
+        this.addedDocuments = this.addedDocuments.filter(function (doc) { return !doc.isToDelete; });
     };
     CreateContentCtrl.prototype.addSelected = function () {
         var _this = this;
@@ -71,50 +69,6 @@ var CreateContentCtrl = (function () {
             return !_this.isPresent(doc);
         });
         this.addedDocuments = this.addedDocuments.concat(filteredDocuments);
-        // if (this.addedDocuments.length > 0) {
-        // copiedDocuments = angular.copy(this.addedDocuments); 
-        // let filteredDocuments = [];
-        // for (var index = 0; index < this.selectedDocuments.length; index++) {
-        //     if (this.isPresent(this.selectedDocuments[index])) {
-        //         filteredDocuments.push(this.selectedDocuments[index])
-        //     }
-        // }
-        //     let filteredDocuments = this.selectedDocuments.filter(doc => {
-        //         return !this.isPresent(doc);
-        //     })
-        //     this.addedDocuments =  this.addedDocuments.concat(filteredDocuments);
-        // }                                 
-        // else {
-        //     copiedDocuments = angular.copy(this.selectedDocuments);
-        //     this.addedDocuments = this.addedDocuments.concat(copiedDocuments);
-        // }
-    };
-    //
-    //   checkForDuplicateDocuments = function() {
-    //     //check if there are any items added
-    //     if (this.addedDocuments.length > 0) {
-    //         //then loop through items
-    //         for (var i = 0; i < this.addedDocuments.length; i++) {
-    //             var documentName = this.addedDocuments[i].name;
-    //             for (var j = 0; j < this.selectedDocuments.length; j++) {
-    //                 var documentToBeAdded = this.selectedDocuments[j];
-    //                 if (documentName === documentToBeAdded.name) {
-    //                     return false;
-    //                 }
-    //             }
-    //         }
-    //         return true;
-    //     }
-    //      return true;
-    // }
-    CreateContentCtrl.prototype.deleteDocuments = function () {
-        var _this = this;
-        this.documentsToDelete.forEach(function (doc) { return _this.removeDocument(doc); });
-        console.log("Hello");
-    };
-    CreateContentCtrl.prototype.removeDocument = function (document) {
-        var index = this.addedDocuments.indexOf(document);
-        this.addedDocuments.splice(index, 1);
     };
     CreateContentCtrl.$inject = ["$scope", "service"];
     return CreateContentCtrl;

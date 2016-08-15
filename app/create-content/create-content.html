@@ -32,7 +32,7 @@
             <!--<tr style="" ng-repeat="doc in vm.addedDocuments" ng-class="{selected: vm.isToDelete(doc)}" ng-click="vm.selectToDelete(doc)">-->
             <tr style="" ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isToDelete}">
                 <!-- <div>Type: {{doc.documentType}}</div> -->
-                <td ng-click="vm.setBeforeDeleting(doc)">{{doc.name}}</td>
+                <td ng-click="vm.markToDelete(doc)" >{{doc.name}}</td>
                 <td>{{doc.isToDelete}}</td>
                 <!--<td ng-click="select(doc) ">{{doc.name}}</td>-->
                 <td>

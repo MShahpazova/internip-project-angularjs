@@ -27,8 +27,8 @@ class CreateContentCtrl {
             isSelected: true,
         }];
 
-    selectedDocuments: Array<IDocument>; //temporary array
-    addedDocuments: Array<IDocument> = []; //target array
+    selectedDocuments: Array<IDocument>; // temporary array
+    addedDocuments: Array<IDocument> = []; // target array
     documentsToDelete: Array<IDocument> = [];
     name: string;
 
@@ -39,7 +39,7 @@ class CreateContentCtrl {
     // attaching things to the $scope
     //check for duplicate items
 
-    isPresent(doc){
+    isPresent(doc) {
         //returns true if the element doesn't exist in the array
         return this.addedDocuments.map(doc => doc.name).indexOf(doc.name) >= 0;
     }
@@ -48,73 +48,25 @@ class CreateContentCtrl {
     //     console.log("exp evalueted");
     //     return this.documentsToDelete.map(doc=> doc.name).indexOf(doc.name) >= 0;
     // }
-    isToDelete(doc) {
+    markToDelete(doc) {
         doc.isToDelete = !doc.isToDelete;
     }
 
-    setBeforeDeleting(doc) {
-        this.isToDelete(doc)
-    console.log("select to delete")
-    this.documentsToDelete.push(doc);
+    deleteDocuments() {
+        this.addedDocuments = this.addedDocuments.filter(doc => !doc.isToDelete);
     }
 
     addSelected() {
         // has to concat to this.selectedDocuments in the this.addedDocuments
         // our brand new documents
-            let copiedDocuments;
-            console.log(this.addedDocuments.length)
+        let copiedDocuments;
+        console.log(this.addedDocuments.length)
         let filteredDocuments = this.selectedDocuments.filter(doc => {
             return !this.isPresent(doc);
         })
         this.addedDocuments = this.addedDocuments.concat(filteredDocuments);
-        
-        // if (this.addedDocuments.length > 0) {
-            // copiedDocuments = angular.copy(this.addedDocuments); 
-            // let filteredDocuments = [];
-            // for (var index = 0; index < this.selectedDocuments.length; index++) {
-            //     if (this.isPresent(this.selectedDocuments[index])) {
-            //         filteredDocuments.push(this.selectedDocuments[index])
-            //     }
-            // }
-        //     let filteredDocuments = this.selectedDocuments.filter(doc => {
-        //         return !this.isPresent(doc);
-        //     })
-        //     this.addedDocuments =  this.addedDocuments.concat(filteredDocuments);
-        // }                                 
-        // else {
-        //     copiedDocuments = angular.copy(this.selectedDocuments);
-        //     this.addedDocuments = this.addedDocuments.concat(copiedDocuments);
-        // }
-    }
-//
-
-    //   checkForDuplicateDocuments = function() {
-    //     //check if there are any items added
-        
-    //     if (this.addedDocuments.length > 0) {
-    //         //then loop through items
-    //         for (var i = 0; i < this.addedDocuments.length; i++) {
-    //             var documentName = this.addedDocuments[i].name;
-    //             for (var j = 0; j < this.selectedDocuments.length; j++) {
-    //                 var documentToBeAdded = this.selectedDocuments[j];
-    //                 if (documentName === documentToBeAdded.name) {
-    //                     return false;
-    //                 }
-    //             }
-    //         }
-    //         return true;
-    //     }
-    //      return true;
-    // }
-    deleteDocuments() {
-        this.documentsToDelete.forEach(doc => this.removeDocument(doc));
-        console.log("Hello")
     }
 
-    removeDocument(document) {
-        let index = this.addedDocuments.indexOf(document);
-        this.addedDocuments.splice(index, 1);
-    }
 
     constructor($scope, service, documents) {
         
