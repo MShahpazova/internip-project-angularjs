@@ -53,9 +53,9 @@ class CreateContentCtrl {
     }
 
     setBeforeDeleting(doc) {
-        this.isToDelete(doc)
-    console.log("select to delete")
-    this.documentsToDelete.push(doc);
+        // this.isToDelete(doc)
+        doc.isToDelete = true;
+        this.documentsToDelete.push(doc);
     }
 
     addSelected() {

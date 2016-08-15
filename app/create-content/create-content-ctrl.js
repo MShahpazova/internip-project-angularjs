@@ -57,8 +57,8 @@ var CreateContentCtrl = (function () {
         doc.isToDelete = !doc.isToDelete;
     };
     CreateContentCtrl.prototype.setBeforeDeleting = function (doc) {
-        this.isToDelete(doc);
-        console.log("select to delete");
+        // this.isToDelete(doc)
+        doc.isToDelete = true;
         this.documentsToDelete.push(doc);
     };
     CreateContentCtrl.prototype.addSelected = function () {
