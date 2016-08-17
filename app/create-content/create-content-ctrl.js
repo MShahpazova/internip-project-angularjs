@@ -1,5 +1,6 @@
 ///<reference path="../../typings/tsd.d.ts"/>
 ///<reference path="../components/components.d.ts"/>
+///<reference path="./step.ts" />
 var ctrlModule = angular.module("hydra.controllers");
 //todo: create only one box for all the selected documents
 //todo: number of copies to appear only when document isn't an original
@@ -31,6 +32,7 @@ var CreateContentCtrl = (function () {
             }];
         this.addedDocuments = []; // target array
         this.documentsToDelete = [];
+        this.steps = [];
         // this.dataService = service;
         // var self = this;
         // console.log(this);
@@ -42,6 +44,8 @@ var CreateContentCtrl = (function () {
         // });
         // vm is view-model
         $scope.vm = this;
+        this.steps.push(new Step());
+        console.log(this.steps[0].location);
     }
     // attaching things to the $scope
     //check for duplicate items
@@ -64,11 +68,18 @@ var CreateContentCtrl = (function () {
         // has to concat to this.selectedDocuments in the this.addedDocuments
         // our brand new documents
         var copiedDocuments;
-        console.log(this.addedDocuments.length);
         var filteredDocuments = this.selectedDocuments.filter(function (doc) {
             return !_this.isPresent(doc);
         });
         this.addedDocuments = this.addedDocuments.concat(filteredDocuments);
+    };
+    CreateContentCtrl.prototype.removeStep = function (index) {
+        var element = this.steps.indexOf(index);
+        this.steps.splice(index, 1);
+    };
+    CreateContentCtrl.prototype.addStep = function (index) {
+        var step = new Step();
+        this.steps.splice(index, 0, step);
     };
     CreateContentCtrl.$inject = ["$scope", "service"];
     return CreateContentCtrl;

@@ -1,6 +1,8 @@
 ///<reference path="../../typings/tsd.d.ts"/>
 ///<reference path="../components/components.d.ts"/>
+///<reference path="./step.ts" />
 var ctrlModule = angular.module("hydra.controllers");
+
 //todo: create only one box for all the selected documents
 //todo: number of copies to appear only when document isn't an original
 //todo: should i add every property I set as a field in the class of the controller 
@@ -31,7 +33,7 @@ class CreateContentCtrl {
     addedDocuments: Array<IDocument> = []; // target array
     documentsToDelete: Array<IDocument> = [];
     name: string;
-
+    steps: Array<IStep> = [];
     private dataService;
 
     static $inject = ["$scope", "service"];
@@ -49,8 +51,8 @@ class CreateContentCtrl {
     //     return this.documentsToDelete.map(doc=> doc.name).indexOf(doc.name) >= 0;
     // }
     markToDelete(doc) {
-        doc.isToDelete = !doc.isToDelete;
-    }
+            doc.isToDelete = !doc.isToDelete;
+        }
 
     deleteDocuments() {
         this.addedDocuments = this.addedDocuments.filter(doc => !doc.isToDelete);
@@ -60,16 +62,23 @@ class CreateContentCtrl {
         // has to concat to this.selectedDocuments in the this.addedDocuments
         // our brand new documents
         let copiedDocuments;
-        console.log(this.addedDocuments.length)
         let filteredDocuments = this.selectedDocuments.filter(doc => {
             return !this.isPresent(doc);
         })
         this.addedDocuments = this.addedDocuments.concat(filteredDocuments);
     }
+    removeStep(index) {
+        var element= this.steps.indexOf(index);
+        this.steps.splice(index, 1);
+    }
 
+    addStep(index) {
+        let step = new Step();
 
+        this.steps.splice(index, 0, step);
+    }
     constructor($scope, service, documents) {
-        
+
         // $scope.name = this.name;
         // this.name = $scope.name;
 
@@ -84,6 +93,8 @@ class CreateContentCtrl {
         // });
         // vm is view-model
         $scope.vm = this;
+        this.steps.push(new Step());
+        console.log(this.steps[0].location)
     }
 }
 ctrlModule.controller("createContentCtrl", CreateContentCtrl)

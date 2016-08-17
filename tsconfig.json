@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
         "module": "none",
-        "target": "ES5"
+        "target": "ES5",
+        "outDir": "../../../public/js"
     },
     "files": [
         "app.ts"

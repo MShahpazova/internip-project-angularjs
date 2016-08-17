@@ -69,19 +69,55 @@
             <div class="row">
                 <div class="small-1 columns">
                     <div id="circle">
+                        {{}}
                     </div>
                 </div>
                 <div class="small-3 columns">
-                    <select class="select" ng-options="document as document.name for document in vm.documents" ng-model="vm.selectedDocuments" size="5">
+                    <select class="select">
+                        <option value="sign">Sign</option>
+                        <option value="pay">Pay</option>
+                        <option value="submit">Submit</option>
                     </select>
                 </div>
+                <div class="small-3 columns">
+                    <select class="select">
+                        <option value="passport">Passport</option>
+                        <option value="drivingLicence">Driving licence</option>
+                        <option value="id">ID</option>
+                        <option value="birthCertificate">BirthCertificate</option>
+                    </select>
+                </div>
+                <div class="small-4 columns">
+                    <select class="select">
+                        <option value="cityHall">CityHall</option>
+                        <option value="cic">CIC</option>
+                        <option value="policeStation">PoliceStation</option>
+                    </select>
+                </div>
+                <div class="small-1 columns">
+                    <button id="close-button">&#x274E</button>
+                </div>
+            </div>
 
-
+            <br>
+            <div class="row">
+                <div class="small-1 columns">
+                </div>
+                <div class="small-7 columns">
+                    <input type="text" placeholder="Type the steps of the process">
+                </div>
             </div>
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="small-2 columns">
+    </div>
+    <div class="small-1 columns">
+        <button id="add-button">+</button>
+    </div>
 </div>
+
 
 <!--<div class="row">
     <div class="small-3 medium-3 large-3 columns">

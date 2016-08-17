@@ -18,7 +18,6 @@ interface IStep {
     document: StepDocument,
     location: StepLocation,
     note: string,
-
     feeAmount: number
 }
 

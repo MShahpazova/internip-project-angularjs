@@ -13,10 +13,10 @@ span {
 
 #container {
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-left: 15px;
     width: 700px;
     height: 300px;
-    border: solid grey;
+    border: solid 0.2px lightgrey;
 }
 
 #circle {
@@ -25,8 +25,14 @@ span {
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
-    border: solid fuchsia;
+    border: thin fuchsia;
     /*background: fuchsia;*/
+}
+
+#close-button {
+    border: width border-style color;
+    color: lawngreen;
+    background-color: lightseagreen;
 }
 
 
@@ -35,3 +41,13 @@ span {
     height: 200px;
     border: solid grey;
 }*/
+
+#add-button {
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    color: thin 0.2px red;
+    /*background: fuchsia;*/
+}
