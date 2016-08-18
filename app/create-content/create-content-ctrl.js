@@ -53,15 +53,13 @@ var CreateContentCtrl = (function () {
         //returns true if the element doesn't exist in the array
         return this.addedDocuments.map(function (doc) { return doc.name; }).indexOf(doc.name) >= 0;
     };
-    // isToDelete(doc) {
-    //     console.log("exp evalueted");
-    //     return this.documentsToDelete.map(doc=> doc.name).indexOf(doc.name) >= 0;
-    // }
     CreateContentCtrl.prototype.markToDelete = function (doc) {
-        doc.isToDelete = !doc.isToDelete;
+        doc.isSelectedForRemoval = !doc.isSelectedForRemoval;
     };
-    CreateContentCtrl.prototype.deleteDocuments = function () {
-        this.addedDocuments = this.addedDocuments.filter(function (doc) { return !doc.isToDelete; });
+    CreateContentCtrl.prototype.removeDocumentsFromAddedDocuments = function () {
+        var documentsSelectedForRemoval = this.addedDocuments.filter(function (doc) { return doc.isSelectedForRemoval; });
+        this.addedDocuments = this.addedDocuments.filter(function (doc) { return !doc.isSelectedForRemoval; });
+        documentsSelectedForRemoval.forEach(function (doc) { return doc.isSelectedForRemoval = false; });
     };
     CreateContentCtrl.prototype.addSelected = function () {
         var _this = this;

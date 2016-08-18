@@ -8,7 +8,7 @@ interface IDocument {
     needOriginal: boolean;
     needCopy: boolean;
     needLegalizedCopy: boolean;
-    isToDelete: boolean;
+    isSelectedForRemoval: boolean;
     countOfCopies: number;
     countOfLegalizedCopies: number;
 }

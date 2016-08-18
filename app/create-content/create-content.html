@@ -22,16 +22,16 @@
             <button class="button tiny" ng-click="vm.addSelected()">
                 Select
             </button>
-            <button class="button tiny" ng-click="vm.deleteDocuments()">
+            <button class="button tiny" ng-click="vm.removeDocumentsFromAddedDocuments()">
                 Remove
             </button>
         </span>
     </div>
     <!--The selected documents appear here-->
     <table class="small-7">
-        <tr ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isToDelete}">
+        <tr ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isSelectedForRemoval}">
             <td ng-click="vm.markToDelete(doc)">{{doc.name}}</td>
-            <td>{{doc.isToDelete}}</td>
+            <td>{{doc.isSelectedForRemoval}}</td>
             <td>
                 <label>
                         <input type="checkbox" ng-model="doc.isOriginal">
