@@ -1,3 +1,4 @@
+<!--prerequisites folder-->
 <div class="row">
     <div class="small-2 medium-2 large-2 columns">
         <label for="right-label" class="text-right">Name of the process:</label>
@@ -26,13 +27,11 @@
             </button>
         </span>
     </div>
+    <!--The selected documents appear here-->
     <table class="small-7">
-        <!--<tr style="" ng-repeat="doc in vm.addedDocuments" ng-class="{selected: vm.isToDelete(doc)}" ng-click="vm.selectToDelete(doc)">-->
-        <tr style="" ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isToDelete}">
-            <!-- <div>Type: {{doc.documentType}}</div> -->
+        <tr ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isToDelete}">
             <td ng-click="vm.markToDelete(doc)">{{doc.name}}</td>
             <td>{{doc.isToDelete}}</td>
-            <!--<td ng-click="select(doc) ">{{doc.name}}</td>-->
             <td>
                 <label>
                         <input type="checkbox" ng-model="doc.isOriginal">
@@ -61,67 +60,75 @@
 <br>
 <br>
 <br>
-<div class="row">
-    <div class="small-2 medium-2 large-2 columns">
-    </div>
-    <div class="small-5 medium-5 large-5 columns">
-        <div id="container">
-            <div class="row">
-                <div class="small-1 columns">
-                    <div id="circle">
-                        {{}}
+
+<!--Step-process box-->
+<!--Step-process box-->
+<!--Step-process box-->
+<!--Step-process box-->
+<!--Step-process box-->
+<div ng-repeat="step in vm.steps">
+    <!--Step-process box-->
+    <div class="row">
+        <div class="small-2 medium-2 large-2 columns">
+        </div>
+        <!--Container for the box of  the step-process-->
+        <div class="small-10 columns">
+            <div id="container">
+                <div class="row">
+                    <div class="small-1 columns">
+                        <!--circle element where the number of the step-process should appear-->
+                        <div id="circle">
+                            {{}}
+                        </div>
                     </div>
-                </div>
-                <div class="small-3 columns">
-                    <select class="select">
+                    <!--First dropdown with a name of the action of the step process-->
+                    <div class="small-3 columns">
+                        <select class="select">
                         <option value="sign">Sign</option>
                         <option value="pay">Pay</option>
                         <option value="submit">Submit</option>
                     </select>
-                </div>
-                <div class="small-3 columns">
-                    <select class="select">
+                    </div>
+                    <!--Second dropdown with documents of the step-process-->
+                    <div class="small-3 columns">
+                        <select class="select">
                         <option value="passport">Passport</option>
                         <option value="drivingLicence">Driving licence</option>
                         <option value="id">ID</option>
                         <option value="birthCertificate">BirthCertificate</option>
                     </select>
-                </div>
-                <div class="small-4 columns">
-                    <select class="select">
+                    </div>
+
+                    <!--Location of the step-process-->
+                    <div class="small-4 columns">
+                        <select class="select">
                         <option value="cityHall">CityHall</option>
                         <option value="cic">CIC</option>
                         <option value="policeStation">PoliceStation</option>
                     </select>
+                    </div>
+                    <div class="small-1 columns">
+                        <button id="close-button">&#x274E</button>
+                    </div>
                 </div>
-                <div class="small-1 columns">
-                    <button id="close-button">&#x274E</button>
-                </div>
-            </div>
-
-            <br>
-            <div class="row">
-                <div class="small-1 columns">
-                </div>
-                <div class="small-7 columns">
-                    <input type="text" placeholder="Type the steps of the process">
+                <br>
+                <!--Notes for the step-process-->
+                <div class="row">
+                    <div class="small-1 columns">
+                    </div>
+                    <div class="small-7 columns">
+                        <input type="text" placeholder="Type the steps of the process">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="small-2 columns">
+    <div class="row">
+        <div class="small-2 columns">
+        </div>
+        <div class="small-1 columns">
+            <button id="add-button">+</button>
+        </div>
     </div>
-    <div class="small-1 columns">
-        <button id="add-button">+</button>
-    </div>
-</div>
 
-
-<!--<div class="row">
-    <div class="small-3 medium-3 large-3 columns">
-    </div>
-    <div class="small-5 medium-5 large-5 columns">
-    </div>
-</div>-->
+</div>
