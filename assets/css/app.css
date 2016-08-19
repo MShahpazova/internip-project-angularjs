@@ -25,8 +25,15 @@ span {
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     border-radius: 25px;
-    border: thin fuchsia;
-    /*background: fuchsia;*/
+    background: fuchsia;
+    margin: 10px;
+    text-align: center;
+    line-height: 50px;
+}
+
+span {
+    display: table-cell;
+    vertical-align: middle;
 }
 
 #close-button {

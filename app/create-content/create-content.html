@@ -76,13 +76,15 @@
             <div id="container">
                 <div class="row">
                     <div class="small-1 columns">
-                        <!--circle element where the number of the step-process should appear-->
                         <div id="circle">
-                            {{}}
+                            {{$index}}
                         </div>
                     </div>
+                    <div class="small-1 columns">
+                        <!--circle element where the number of the step-process should appear-->
+                    </div>
                     <!--First dropdown with a name of the action of the step process-->
-                    <div class="small-3 columns">
+                    <div class="small-2 columns">
                         <select class="select">
                         <option value="sign">Sign</option>
                         <option value="pay">Pay</option>
