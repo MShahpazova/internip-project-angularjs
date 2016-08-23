@@ -14,10 +14,10 @@ interface IDocument {
 }
 
 interface IStep {
-    action: StepAction,
-    document: StepDocument,
-    location: StepLocation,
-    note: string,
+    action: string,
+    document: string,
+    location: string,
+    notes: string,
     feeAmount: number
 }
 

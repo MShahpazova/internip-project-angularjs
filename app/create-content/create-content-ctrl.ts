@@ -58,7 +58,7 @@ class CreateContentCtrl {
 
     addSelected() {
         // has to concat to this.selectedDocuments in the this.addedDocuments
-        // our brand new documents
+        // our brand new documentss
         let copiedDocuments;
         let filteredDocuments = this.selectedDocuments.filter(doc => {
             return !this.isPresent(doc);
@@ -66,15 +66,19 @@ class CreateContentCtrl {
         this.addedDocuments = this.addedDocuments.concat(filteredDocuments);
     }
     removeStep(index) {
-        var element= this.steps.indexOf(index);
+        // var element = this.steps.indexOf(index);
+        console.log("logger", this.steps)
         this.steps.splice(index, 1);
     }
 
+
     addStep(index) {
         let step = new Step();
-
         this.steps.splice(index, 0, step);
+        console.log(index);
+        console.log("logger", this.steps)
     }
+    
     constructor($scope, service, documents) {
 
         // $scope.name = this.name;

@@ -76,8 +76,8 @@
             <div id="container">
                 <div class="row">
                     <div class="small-1 columns">
-                        <div id="circle">
-                            {{$index}}
+                        <div class="circle-container">
+                            <p> {{$index + 1}} </p>
                         </div>
                     </div>
                     <div class="small-1 columns">
@@ -85,32 +85,43 @@
                     </div>
                     <!--First dropdown with a name of the action of the step process-->
                     <div class="small-2 columns">
-                        <select class="select">
+                        <select class="select" ng-selected="step.action" ng-model="step.action" title="action">
+                        <option value="" disabled selected>Action</option>
                         <option value="sign">Sign</option>
                         <option value="pay">Pay</option>
                         <option value="submit">Submit</option>
-                    </select>
+                        </select>
                     </div>
                     <!--Second dropdown with documents of the step-process-->
                     <div class="small-3 columns">
-                        <select class="select">
+                        <select class="select" ng-selected="step.document" ng-model="step.document">
+                        <option value="" disabled selected>Document</option>
                         <option value="passport">Passport</option>
                         <option value="drivingLicence">Driving licence</option>
                         <option value="id">ID</option>
                         <option value="birthCertificate">BirthCertificate</option>
-                    </select>
+                        </select>
+
+                        <button class="small-12 small-centered columns">+</button>
                     </div>
 
                     <!--Location of the step-process-->
                     <div class="small-4 columns">
-                        <select class="select">
+                        <select class="select" ng-selected="step.location" ng-model="step.location">
+                        <option value="" disabled selected>Location</option>
                         <option value="cityHall">CityHall</option>
+                        <option value="cic">CIC</option>
+                        <option value="policeStation">PoliceStation</option>
+                        <option value="cityHall">CityHall</option>
+                        <option value="cic">CIC</option>
+                        <option value="policeStation">PoliceStation</option>
                         <option value="cic">CIC</option>
                         <option value="policeStation">PoliceStation</option>
                     </select>
                     </div>
                     <div class="small-1 columns">
-                        <button id="close-button">&#x274E</button>
+
+                        <button ng-click="vm.removeStep($index)" id="close-button"><p>&#x274E</p></button>
                     </div>
                 </div>
                 <br>
@@ -119,7 +130,7 @@
                     <div class="small-1 columns">
                     </div>
                     <div class="small-7 columns">
-                        <input type="text" placeholder="Type the steps of the process">
+                        <input type="text" placeholder="Type the steps of the process" ng-model="step.note">
                     </div>
                 </div>
             </div>
@@ -129,8 +140,9 @@
         <div class="small-2 columns">
         </div>
         <div class="small-1 columns">
-            <button id="add-button">+</button>
+            <div class="circle-container">
+                <button ng-click="vm.addStep($index + 1)"> <p id="plus-button">+</p></button>
+            </div>
         </div>
     </div>
-
 </div>

@@ -8,7 +8,7 @@ span {
 
 .selected {
     /*background: #c8c8c8;*/
-    background: fuchsia !important
+    background: lightslategrey !important
 }
 
 #container {
@@ -17,9 +17,34 @@ span {
     width: 700px;
     height: 300px;*/
     border: solid 0.2px lightgrey;
+    padding: 0.8em 0 0 0;
+    margin: 2em 0 2em 0;
 }
 
-#circle {
+div.circle-container {
+    width: 3em;
+    height: 3em;
+    position: relative;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: solid 0.2px grey;
+    margin: 0 0 0 0.4em;
+}
+
+div.circle-container p {
+    line-height: 3em;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+}
+
+
+/*#circle {
     width: 50px;
     height: 50px;
     -webkit-border-radius: 25px;
@@ -29,17 +54,20 @@ span {
     margin: 10px;
     text-align: center;
     line-height: 50px;
-}
+}*/
 
-span {
+
+/*span {
     display: table-cell;
     vertical-align: middle;
-}
+}*/
 
 #close-button {
     border: width border-style color;
-    color: lawngreen;
-    background-color: lightseagreen;
+    font-size: 1.5em;
+    color: black;
+    float: right;
+    margin: -0.6em 0.3em 0 0;
 }
 
 

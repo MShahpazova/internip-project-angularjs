@@ -64,7 +64,7 @@ var CreateContentCtrl = (function () {
     CreateContentCtrl.prototype.addSelected = function () {
         var _this = this;
         // has to concat to this.selectedDocuments in the this.addedDocuments
-        // our brand new documents
+        // our brand new documentss
         var copiedDocuments;
         var filteredDocuments = this.selectedDocuments.filter(function (doc) {
             return !_this.isPresent(doc);
@@ -72,12 +72,15 @@ var CreateContentCtrl = (function () {
         this.addedDocuments = this.addedDocuments.concat(filteredDocuments);
     };
     CreateContentCtrl.prototype.removeStep = function (index) {
-        var element = this.steps.indexOf(index);
+        // var element = this.steps.indexOf(index);
+        console.log("logger", this.steps);
         this.steps.splice(index, 1);
     };
     CreateContentCtrl.prototype.addStep = function (index) {
         var step = new Step();
         this.steps.splice(index, 0, step);
+        console.log(index);
+        console.log("logger", this.steps);
     };
     CreateContentCtrl.$inject = ["$scope", "service"];
     return CreateContentCtrl;
