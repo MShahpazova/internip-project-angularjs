@@ -5,6 +5,8 @@
         "outDir": "../../../public/js"
     },
     "files": [
-        "app.ts"
+        "app.ts",
+        "step.ts",
+        "document.ts"
     ]
 }

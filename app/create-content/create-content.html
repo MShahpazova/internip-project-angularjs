@@ -1,4 +1,5 @@
 <!--prerequisites folder-->
+
 <div class="row">
     <div class="small-2 medium-2 large-2 columns">
         <label for="right-label" class="text-right">Name of the process:</label>
@@ -29,6 +30,9 @@
     </div>
     <!--The selected documents appear here-->
     <table class="small-7">
+
+
+
         <tr ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isSelectedForRemoval}">
             <td ng-click="vm.markToDelete(doc)">{{doc.name}}</td>
             <td>{{doc.isSelectedForRemoval}}</td>
@@ -74,7 +78,7 @@
         <!--Container for the box of  the step-process-->
         <div class="small-10 columns">
             <div id="container">
-                <div class="row">
+                <div class="row small-12">
                     <div class="small-1 columns">
                         <div class="circle-container">
                             <p> {{$index + 1}} </p>
@@ -102,7 +106,15 @@
                         <option value="birthCertificate">BirthCertificate</option>
                         </select>
 
-                        <button class="small-12 small-centered columns">+</button>
+                        <select class="select" ng-selected="step.document" ng-model="step.document">
+                        <option value="" disabled selected>Document</option>
+                        <option value="passport">Passport</option>
+                        <option value="drivingLicence">Driving licence</option>
+                        <option value="id">ID</option>
+                        <option value="birthCertificate">BirthCertificate</option>
+                        </select>
+
+                        <button class="small-12 small-centered columns"><i class="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
 
                     <!--Location of the step-process-->
@@ -121,7 +133,7 @@
                     </div>
                     <div class="small-1 columns">
 
-                        <button ng-click="vm.removeStep($index)" id="close-button"><p>&#x274E</p></button>
+                        <button ng-click="vm.removeStep($index)" class="float-right"> <i class="fa fa-times" aria-hidden="true"></i></button>
                     </div>
                 </div>
                 <br>
@@ -141,8 +153,34 @@
         </div>
         <div class="small-1 columns">
             <div class="circle-container">
-                <button ng-click="vm.addStep($index + 1)"> <p id="plus-button">+</p></button>
+                <button ng-click="vm.addStep($index + 1)"> <p class="plus-button"><i class="fa fa-plus circle" aria-hidden="true"></i></p></button>
+                <!--<i class="fa fa-minus-circle" aria-hidden="true"></i>-->
             </div>
         </div>
     </div>
 </div>
+
+
+<!--<button class="button" type="button" data-toggle="example-dropdown">Toggle Dropdown</button>
+<div class="dropdown-pane" id="example-dropdown" data-dropdown data-auto-focus="true">
+    Example form in a dropdown.
+    <form>
+        <div class="row">
+            <div class="medium-6 columns">
+                <label>Name
+          <input type="text" placeholder="Kirk, James T.">
+        </label>
+            </div>
+            <div class="medium-6 columns">
+                <label>Rank
+          <input type="text" placeholder="Captain">
+        </label>
+            </div>
+        </div>
+    </form>
+</div>
+
+<button class="button" type="button" data-toggle="example-dropdown-1">Hoverable Dropdown</button>
+<div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
+    Just some junk that needs to be said. Or not. Your choice.
+</div>-->

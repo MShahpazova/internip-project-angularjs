@@ -2,9 +2,9 @@
 
 interface IDocument {
     name: string;
-    documentType: Type;
     isSelected: boolean;
     numberOfCopies: number;
+    feeAmount: number;
     needOriginal: boolean;
     needCopy: boolean;
     needLegalizedCopy: boolean;
@@ -15,17 +15,12 @@ interface IDocument {
 
 interface IStep {
     action: string,
-    document: string,
+    document: Document2,
     location: string,
     notes: string,
     feeAmount: number
 }
 
-declare enum Type {
-    original,
-    copy,
-    legalizedCopy
-}
 
 declare enum StepAction{
     Pay,

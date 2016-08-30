@@ -5,35 +5,84 @@
 <head>
     <meta charset="utf-8" />
     <title>Hydra App</title>
+
     <!--Foundation css-->
     <link rel="stylesheet" href="node_modules/foundation-sites/dist/foundation.min.css" type="text/css" />
     <link rel="stylesheet" href="node_modules/foundation-sites/dist/foundation-flex.min.css" type="text/css" />
     <link rel="stylesheet" href="node_modules/foundation-sites/dist/foundation-rtl.min.css" type="text/css" />
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css" type="text/css" />
     <!--Custom css-->
     <link rel="stylesheet" href="assets/css/app.css" type="text/css" />
+
+    <!--jquery.js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!--<script src="node_modules/jquery/dist/jquery.js"></script>-->
+    <!--<script src="node_modules/jfoundation-sites/node-modules/dist/jquery.js"></script>-->
+
     <!--Angular scripts-->
     <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angular-route/angular-route.js"></script>
+
     <!--Custom scripts-->
     <script src="app/app.js"></script>
     <script src="app/app.module.js"></script>
+
     <!--Custom controllers-->
     <script src="app/components/test/test-ctrl.js"></script>
+
     <!--Custom services-->
     <script src="app/services/test-service-svc.js"></script>
     <script src="app/create-content/create-content-ctrl.js"></script>
     <script src="app/services/prerequisite-folder.js"></script>
+
     <!-- Classes -->
     <script src="app/create-content/step.js"></script>
+
+    <!--Foundation js-->
+
+
 </head>
 
 <body>
-    <!--<div id="navigation-links">
-        <a ng-href="#home">Home</a>
-        <a ng-href="#test">Test</a>
-        <a ng-href="#create-content">Create content</a>
-    </div>-->
     <div ng-view></div>
+
+
+    <button class="button" type="button" data-toggle="example-dropdown">Toggle Dropdown</button>
+    <div class="dropdown-pane" id="example-dropdown" data-dropdown data-auto-focus="true">
+        Example form in a dropdown.
+        <form>
+            <div class="row">
+                <div class="medium-6 columns">
+                    <label>Name
+          <input type="text" placeholder="Kirk, James T.">
+        </label>
+                </div>
+                <div class="medium-6 columns">
+                    <label>Rank
+          <input type="text" placeholder="Captain">
+        </label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <button class="button" type="button" data-toggle="example-dropdown-1">Hoverable Dropdown</button>
+    <div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
+        Just some junk that needs to be said. Or not. Your choice.
+    </div>
+
+    <script src="node_modules/foundation-sites/dist/plugins/foundation.core.js"></script>
+    <script src="node_modules/foundation-sites/dist/plugins/foundation.util.mediaQuery.js"></script>
+    <script src="node_modules/foundation-sites/dist/plugins/foundation.util.keyboard.js"></script>
+    <script src="node_modules/foundation-sites/dist/plugins/foundation.util.box.js"></script>
+    <script src="node_modules/foundation-sites/dist/plugins/foundation.util.triggers.js"></script>
+    <!--<script src="node_modules/foundation-sites/dist/foundation.js"></script>-->
+    <script src="node_modules/foundation-sites/dist/plugins/foundation.dropdown.js"></script>
+
+    <script>
+        $(document).foundation();
+    </script>
 </body>
 
 </html>

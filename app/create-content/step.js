@@ -8,7 +8,7 @@ var Step = (function () {
         if (feeAmount === void 0) { feeAmount = 0; }
         ;
         this.action = action;
-        this.document = null;
+        this.document = document;
         this.location = location;
         this.notes = notes;
         this.feeAmount = feeAmount;

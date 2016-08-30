@@ -1,33 +1,14 @@
 ///<reference path="../../typings/tsd.d.ts"/>
 ///<reference path="../components/components.d.ts"/>
 ///<reference path="./step.ts" />
+///<reference path="./document.ts" />
 var ctrlModule = angular.module("hydra.controllers");
 
 //todo: create only one box for all the selected documents
 //todo: number of copies to appear only when document isn't an original
 //todo: should i add every property I set as a field in the class of the controller 
 class CreateContentCtrl {
-    documents = [{
-        name: "Passport",
-        documentType: 2,
-        isSelected: true,
-        numberOfCopies: 3
-       }, {
-            name: "National ID",
-            documentType: 2,
-            numberOfCopies: 1,
-            isSelected: true,
-        }, {
-            name: "Driving licence",
-            documentType: 2,
-            numberOfCopies: 1,
-            isSelected: true,
-        }, {
-            name: "Marriage licence",
-            documentType: 2,
-            numberOfCopies: 1,
-            isSelected: true,
-        }];
+    documents = [];
 
     selectedDocuments: Array<IDocument>; // temporary array
     addedDocuments: Array<IDocument> = []; // target array
@@ -89,10 +70,10 @@ class CreateContentCtrl {
         // console.log(this);
         // documents = service.getDocuments();
         // promises
-        // this.dataService.getDocuments().then(function (documents) {
-        //     console.log(this);
-        //     self.documents = documents;
-        // });
+        let self = this;
+        service.getDocuments().then(function (documents) {
+            self.documents = documents;
+        });
         // vm is view-model
         $scope.vm = this;
         this.steps.push(new Step());
@@ -100,3 +81,4 @@ class CreateContentCtrl {
     }
 }
 ctrlModule.controller("createContentCtrl", CreateContentCtrl)
+

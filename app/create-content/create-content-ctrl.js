@@ -1,6 +1,7 @@
 ///<reference path="../../typings/tsd.d.ts"/>
 ///<reference path="../components/components.d.ts"/>
 ///<reference path="./step.ts" />
+///<reference path="./document.ts" />
 var ctrlModule = angular.module("hydra.controllers");
 //todo: create only one box for all the selected documents
 //todo: number of copies to appear only when document isn't an original
@@ -9,27 +10,7 @@ var CreateContentCtrl = (function () {
     function CreateContentCtrl($scope, service, documents) {
         // $scope.name = this.name;
         // this.name = $scope.name;
-        this.documents = [{
-                name: "Passport",
-                documentType: 2,
-                isSelected: true,
-                numberOfCopies: 3
-            }, {
-                name: "National ID",
-                documentType: 2,
-                numberOfCopies: 1,
-                isSelected: true,
-            }, {
-                name: "Driving licence",
-                documentType: 2,
-                numberOfCopies: 1,
-                isSelected: true,
-            }, {
-                name: "Marriage licence",
-                documentType: 2,
-                numberOfCopies: 1,
-                isSelected: true,
-            }];
+        this.documents = [];
         this.addedDocuments = []; // target array
         this.documentsToDelete = [];
         this.steps = [];
@@ -38,10 +19,10 @@ var CreateContentCtrl = (function () {
         // console.log(this);
         // documents = service.getDocuments();
         // promises
-        // this.dataService.getDocuments().then(function (documents) {
-        //     console.log(this);
-        //     self.documents = documents;
-        // });
+        var self = this;
+        service.getDocuments().then(function (documents) {
+            self.documents = documents;
+        });
         // vm is view-model
         $scope.vm = this;
         this.steps.push(new Step());

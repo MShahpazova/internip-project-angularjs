@@ -11,6 +11,10 @@ span {
     background: lightslategrey !important
 }
 
+i .fa fa-plus-circle #add-step-button {
+    font-size: 50px !important;
+}
+
 #container {
     /*padding-top: 20px;
     padding-left: 15px;
