@@ -13,6 +13,20 @@ class Service {
              return response.data;
          });
     }
+
+    public getActions() {
+        return this.$http.get("app/actions.json")
+        .then((response) => {
+            return response.data;
+        });
+    }
+
+     public getCategories() {
+        return this.$http.get("http://ec2-54-229-129-126.eu-west-1.compute.amazonaws.com:8080/actions")
+        .then((response) => {
+            return response.data;
+        });
+    }
 }
 serviceModule.service("service", Service);
 

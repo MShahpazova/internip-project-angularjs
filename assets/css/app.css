@@ -1,9 +1,69 @@
 ﻿body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI, Arial', sans-serif;
+    font-size: 62.5%;
+    /* =10px */
+}
+
+.hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
 }
 
 span {
     font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    font-size: 24px;
+    /*IE8 and lower*/
+    font-size: 2.4rem;
+    /* =24px */
+}
+
+p {
+    font-size: 14px;
+    /*IE8 and lower*/
+    font-size: 1.4rem;
+    /* =14px */
+}
+
+li {
+    font-size: 14px;
+    /*IE8 and lower*/
+    font-size: 1.4rem;
+    /* =14px */
+}
+
+.header {
+    background: #373942;
+    color: #fff;
+    height: 146px;
+    height: 9rem;
+}
+
+.label--white {
+    color: #fff;
 }
 
 .selected {
@@ -25,7 +85,7 @@ i .fa fa-plus-circle #add-step-button {
     margin: 2em 0 2em 0;
 }
 
-div.circle-container {
+.circle-container {
     width: 3em;
     height: 3em;
     position: relative;
@@ -36,7 +96,7 @@ div.circle-container {
     margin: 0 0 0 0.4em;
 }
 
-div.circle-container p {
+.circle-container p {
     line-height: 3em;
     margin: 0;
     position: absolute;
@@ -47,25 +107,6 @@ div.circle-container p {
     font-size: 1.5em;
 }
 
-
-/*#circle {
-    width: 50px;
-    height: 50px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    border-radius: 25px;
-    background: fuchsia;
-    margin: 10px;
-    text-align: center;
-    line-height: 50px;
-}*/
-
-
-/*span {
-    display: table-cell;
-    vertical-align: middle;
-}*/
-
 #close-button {
     border: width border-style color;
     font-size: 1.5em;
@@ -73,13 +114,6 @@ div.circle-container p {
     float: right;
     margin: -0.6em 0.3em 0 0;
 }
-
-
-/*#element {
-    width: 100px;
-    height: 200px;
-    border: solid grey;
-}*/
 
 #add-button {
     width: 50px;
@@ -89,4 +123,9 @@ div.circle-container p {
     border-radius: 25px;
     color: thin 0.2px red;
     /*background: fuchsia;*/
+}
+
+.data-dropdown-content > li.active {
+    font-weight: bold;
+    background-color: #eee;
 }

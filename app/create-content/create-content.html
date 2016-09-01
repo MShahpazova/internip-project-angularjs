@@ -1,24 +1,16 @@
 <!--prerequisites folder-->
 
 <div class="row">
-    <div class="small-2 medium-2 large-2 columns">
-        <label for="right-label" class="text-right">Name of the process:</label>
-    </div>
-    <div class="small-5 medium-5 large-5 columns">
-        <input type="text" ng-model="vm.name" placeholder="Type a name of the process">
-    </div>
+    <label for="right-label" class="small-2 medium-2 large-2 columns text-right">Name of the process:</label>
+    <input type="text" ng-model="vm.name" placeholder="Type a name of the process" class="small-5 medium-5 large-5 columns">
 </div>
 
 <div class="row">
-    <div class="small-2 medium-2 large-2 columns">
-        <label for="right-label" class="text-right">Prerequisites</label>
-    </div>
-    <div class="small-2 medium-2 large-2 columns">
-        <select class="select" ng-options="document as document.name for document in vm.documents" ng-model="vm.selectedDocuments" size="5" multiple>
+    <label for="right-label" class="small-2 medium-2 large-2 columns text-right">Prerequisites</label>
+    <select class="small-2 medium-2 large-2 columns select" ng-options="document as document.name for document in vm.documents" ng-model="vm.selectedDocuments" size="5" multiple>
          </select>
-    </div>
     <div class="small-1 columns">
-        <span class="button-group stacked">
+        <div class="button-group stacked">
 
             <button class="button tiny" ng-click="vm.addSelected()">
                 Select
@@ -26,7 +18,7 @@
             <button class="button tiny" ng-click="vm.removeDocumentsFromAddedDocuments()">
                 Remove
             </button>
-        </span>
+        </div>
     </div>
     <!--The selected documents appear here-->
     <table class="small-7">
@@ -89,32 +81,19 @@
                     </div>
                     <!--First dropdown with a name of the action of the step process-->
                     <div class="small-2 columns">
+
                         <select class="select" ng-selected="step.action" ng-model="step.action" title="action">
-                        <option value="" disabled selected>Action</option>
-                        <option value="sign">Sign</option>
-                        <option value="pay">Pay</option>
-                        <option value="submit">Submit</option>
+                            <option value="" disabled selected>Action</option>
+                            <option ng-repeat="action in vm.actions" value="{{action.id}}" ng-selected="step.action" ng-model="step.action">{{action.name}}</option>
                         </select>
                     </div>
                     <!--Second dropdown with documents of the step-process-->
                     <div class="small-3 columns">
-                        <select class="select" ng-selected="step.document" ng-model="step.document">
-                        <option value="" disabled selected>Document</option>
-                        <option value="passport">Passport</option>
-                        <option value="drivingLicence">Driving licence</option>
-                        <option value="id">ID</option>
-                        <option value="birthCertificate">BirthCertificate</option>
+                        <select ng-repeat="document in step.documents">
+                            <option value="" disabled selected>Document</option>
+                            <option ng-repeat="doc in vm.documents">{{doc.name}}</option>
                         </select>
-
-                        <select class="select" ng-selected="step.document" ng-model="step.document">
-                        <option value="" disabled selected>Document</option>
-                        <option value="passport">Passport</option>
-                        <option value="drivingLicence">Driving licence</option>
-                        <option value="id">ID</option>
-                        <option value="birthCertificate">BirthCertificate</option>
-                        </select>
-
-                        <button class="small-12 small-centered columns"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                        <button ng-click="vm.addDocumentToStep($index)" class="small-12 small-centered columns"><i class="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
 
                     <!--Location of the step-process-->
@@ -161,6 +140,8 @@
 </div>
 
 
+<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+
 <!--<button class="button" type="button" data-toggle="example-dropdown">Toggle Dropdown</button>
 <div class="dropdown-pane" id="example-dropdown" data-dropdown data-auto-focus="true">
     Example form in a dropdown.
@@ -178,9 +159,84 @@
             </div>
         </div>
     </form>
-</div>
+</div>-->
+
+<!--<ul class="dropdown menu" data-dropdown-menu>
+    <li>
+        <a href="#">Item 1</a>
+        <ul class="menu">
+            <li><a href="#">Item 1A</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+            <li><a href="#">Item 4</a></li>
+        </ul>
+    </li>
+</ul>-->
+<!--<ul class="dropdown menu" data-dropdown-menu>
+    <li>
+        <a href="#">Item 1</a>
+        <ul class="menu">
+            <li><a href="#">Item 1A</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+            <li><a href="#">Item 4</a></li>
+        </ul>
+    </li>
+</ul>
 
 <button class="button" type="button" data-toggle="example-dropdown-1">Hoverable Dropdown</button>
 <div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
+    <ul>
+        <li><a href="#">This is a link</a></li>
+        <li><a href="#">This is another</a></li>
+        <li><a href="#">Yet another</a></li>
+    </ul>
+</div>
+
+<a href="#" data-dropdown="drop1" class="button dropdown">Dropdown Button</a>
+<br>
+<ul id="drop1" data-dropdown-content class="f-dropdown">
+    <li><a href="#">This is a link</a>
+    </li>
+    <li class="active"><a href="#">This is another</a>
+    </li>
+    <li><a href="#">Yet another</a>
+    </li>
+</ul>
+
+<a class="button" data-dropdown="autoCloseExample" aria-controls="autoCloseExample" aria-expanded="false">Link Dropdown &raquo;</a>
+<ul id="autoCloseExample" class="f-dropdown" data-dropdown-content tabindex="-1" aria-hidden="true" aria-autoclose="true" tabindex="-1">
+    <li><a href="#">This is a link</a></li>
+    <li><a href="#">This is another</a></li>
+    <li><a href="#">Yet another</a></li>
+</ul>-->
+<!--<button class="button" type="button" data-toggle="example-dropdown2">Top Aligned</button>
+
+<div class="" id="example-dropdown2" data-dropdown>
     Just some junk that needs to be said. Or not. Your choice.
 </div>-->
+
+<!--<ul class="dropdown menu" data-dropdown-menu>
+    <select name="" id="">
+    <option value="" disabled selected>Action</option>
+    <option value="sign">Sign</option>
+    <option value="pay">Pay</option>
+    <option value="submit">Submit</option>
+    </select>
+</ul>-->
+
+<!--<a href="#" class="button" data-dropdown="drop">Link Dropdown &raquo;</a>
+<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
+    <li><a href="#">This is a link</a></li>
+    <li><a href="#">This is another</a></li>
+    <li><a href="#">Yet another</a></li>
+</ul>-->
+
+
+
+
+<script>
+    setTimeout(() => {
+        new Foundation.DropdownMenu($(".dropdown.menu"));
+    }, 5);
+</script>

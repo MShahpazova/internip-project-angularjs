@@ -14,6 +14,7 @@ var CreateContentCtrl = (function () {
         this.addedDocuments = []; // target array
         this.documentsToDelete = [];
         this.steps = [];
+        this.actions = [];
         // this.dataService = service;
         // var self = this;
         // console.log(this);
@@ -22,6 +23,10 @@ var CreateContentCtrl = (function () {
         var self = this;
         service.getDocuments().then(function (documents) {
             self.documents = documents;
+        });
+        service.getActions().then(function (actions) {
+            self.actions = actions;
+            console.log(actions);
         });
         // vm is view-model
         $scope.vm = this;
@@ -61,7 +66,11 @@ var CreateContentCtrl = (function () {
         var step = new Step();
         this.steps.splice(index, 0, step);
         console.log(index);
+        console.log(doc);
         console.log("logger", this.steps);
+    };
+    CreateContentCtrl.prototype.addDocumentToStep = function (stepIndex) {
+        this.steps[stepIndex].documents.push(new Document2());
     };
     CreateContentCtrl.$inject = ["$scope", "service"];
     return CreateContentCtrl;

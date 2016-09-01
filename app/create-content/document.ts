@@ -1,4 +1,6 @@
 ///<reference path="../../typings/tsd.d.ts"/>
+///<reference path="../components/components.d.ts"/>
+
 class Document2 implements IDocument {
     name: string;
     // documentType: Type;
@@ -15,5 +17,6 @@ class Document2 implements IDocument {
     constructor(name = null, feeAmount = 0) {
         this.name = name;
         this.feeAmount = feeAmount;
+        console.log("logger into constructor");
     }
 }

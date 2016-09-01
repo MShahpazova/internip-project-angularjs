@@ -15,6 +15,7 @@ class CreateContentCtrl {
     documentsToDelete: Array<IDocument> = [];
     name: string;
     steps: Array<IStep> = [];
+    actions = [];
     private dataService;
 
     static $inject = ["$scope", "service"];
@@ -57,9 +58,14 @@ class CreateContentCtrl {
         let step = new Step();
         this.steps.splice(index, 0, step);
         console.log(index);
+        console.log(doc);
         console.log("logger", this.steps)
     }
     
+    addDocumentToStep(stepIndex) {
+        this.steps[stepIndex].documents.push(new Document2());
+    }
+
     constructor($scope, service, documents) {
 
         // $scope.name = this.name;
@@ -74,10 +80,15 @@ class CreateContentCtrl {
         service.getDocuments().then(function (documents) {
             self.documents = documents;
         });
+        service.getActions().then(function(actions) {
+            self.actions = actions;
+            console.log(actions);
+        })
         // vm is view-model
         $scope.vm = this;
         this.steps.push(new Step());
         console.log(this.steps[0].location)
+
     }
 }
 ctrlModule.controller("createContentCtrl", CreateContentCtrl)

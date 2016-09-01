@@ -15,7 +15,7 @@ interface IDocument {
 
 interface IStep {
     action: string,
-    document: Document2,
+    documents: Array<Document2>,
     location: string,
     notes: string,
     feeAmount: number
