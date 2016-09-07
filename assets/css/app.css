@@ -31,7 +31,13 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Times New Roman', Times, serif;
+    /*font-family: 'Times New Roman', Times, serif;*/
+    font-family: 'Aharoni Bold', 'Aharoni';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 48px;
+    color: #FFFFFF;
+    text-align: center;
 }
 
 h1 {
@@ -55,11 +61,17 @@ li {
     /* =14px */
 }
 
-.header {
+#header {
     background: #373942;
     color: #fff;
-    height: 146px;
     height: 9rem;
+}
+
+#header .top-bar-left ul,
+#header .top-bar-right ul,
+#header .top-bar-right ul * {
+    background: #373942;
+    color: #fff;
 }
 
 .label--white {
@@ -73,6 +85,34 @@ li {
 
 i .fa fa-plus-circle #add-step-button {
     font-size: 50px !important;
+}
+
+#lense {
+    font-size: 1.3em !important;
+}
+
+.fa fa-bell-o {
+    font-size: 1.3em !important;
+}
+
+#circle-profile {
+    /*font-size: 5em !important;*/
+    font-family: 'Aharoni Bold', 'Aharoni';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 28px;
+}
+
+.nav-left {
+    text-align: center
+}
+
+#nav-bell {
+    font-size: 3em;
+}
+
+.nav-right {
+    text-align: right;
 }
 
 #container {
