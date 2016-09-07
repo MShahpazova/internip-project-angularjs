@@ -44,33 +44,62 @@
 </head>
 
 <body>
-    <header class="small-12 header">
 
-        <section class="small-3 columns search left">
-            <label for="search" class="label--white">Search processes</label>
-            <input type="text" id="search" /><i class="fa fa-search" aria-hidden="true"></i>
-        </section>
-        <h1 class="small-6 columns left">Hydra</h1>
-        <section class="small-3 columns">
-            <div><i class="fa fa-bell-o" aria-hidden="true"><span class="hidden">Your notifications</span></i>
-                <div>User profile</div>
+    <div class="top-bar" id="header">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li><input type="search" placeholder="Search processes"></li>
+                <li> <i class="fa fa-search" id="lense" aria-hidden="true"></i></li>
+            </ul>
+        </div>
+
+        <div class="small-7 text-center top-bar-title">
+            <div class="">
+                <h1>Hydra</h1>
             </div>
-        </section>
-    </header>
-    <div ng-view></div>
-    <footer>This is my footer</footer>
-    <!--<script src="node_modules/foundation-sites/dist/foundation.js"></script>-->
-    <script src="node_modules/foundation-sites/dist/plugins/foundation.core.js"></script>
-    <script src="node_modules/foundation-sites/dist/plugins/foundation.util.mediaQuery.js"></script>
-    <script src="node_modules/foundation-sites/dist/plugins/foundation.util.keyboard.js"></script>
-    <script src="node_modules/foundation-sites/dist/plugins/foundation.util.box.js"></script>
-    <script src="node_modules/foundation-sites/dist/plugins/foundation.util.triggers.js"></script>
-    <script src="node_modules/foundation-sites/dist/plugins/foundation.util.nest.js"></script>
-    <script src="node_modules/foundation-sites/dist/plugins/foundation.dropdownMenu.js"></script>
 
-    <script>
-        // $(document).foundation();
-    </script>
+        </div>
+
+        <div class="top-bar-right">
+            <ul class="menu">
+                <li>
+                    <a href="#">
+                        <i id="nav-bell" class="fa fa-bell-o" aria-hidden="true">
+                        <span class="hidden">Your notifications</span>
+                    </i></a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div id="circle-profile">
+                            <img id="u80_img" class="img " src="http://d2t44wh9rnwl5y.cloudfront.net/gsc/QVDJBI/d8/6e/48/d86e488521834b52bc909729fae9fd09/images/creation_design_mock-up/u80.png?token=1621fd2ee71fcad2430bccae0da4f4ac"> Profile
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="callout small-8" ng-view></div>
+    <footer<i class="icon-circle-blank">
+        This is my footer
+        </i>
+        </footer>
+        <!--<script src="node_modules/foundation-sites/dist/foundation.js"></script>-->
+        <script src="node_modules/foundation-sites/dist/plugins/foundation.core.js"></script>
+        <script src="node_modules/foundation-sites/dist/plugins/foundation.util.mediaQuery.js"></script>
+        <script src="node_modules/foundation-sites/dist/plugins/foundation.util.keyboard.js"></script>
+        <script src="node_modules/foundation-sites/dist/plugins/foundation.util.box.js"></script>
+        <script src="node_modules/foundation-sites/dist/plugins/foundation.util.triggers.js"></script>
+        <script src="node_modules/foundation-sites/dist/plugins/foundation.util.nest.js"></script>
+        <script src="node_modules/foundation-sites/dist/plugins/foundation.dropdownMenu.js"></script>
+
+        <script>
+            // $(document).foundation();
+        </script>
 </body>
 
 </html>
