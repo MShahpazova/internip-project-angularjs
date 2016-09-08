@@ -21,6 +21,10 @@ var Service = (function () {
             return response.data;
         });
     };
+    Service.prototype.submitProcess = function (name, prerequisites, steps) {
+        var url = "";
+        return this.$http.post(url, {});
+    };
     Service.$inject = ["$http"];
     return Service;
 }());

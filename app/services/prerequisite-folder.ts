@@ -27,6 +27,11 @@ class Service {
             return response.data;
         });
     }
+
+    public submitProcess(name, prerequisites, steps){
+        var url = "";
+        return this.$http.post(url,{});
+    }
 }
 serviceModule.service("service", Service);
 

@@ -1,5 +1,6 @@
 ///<reference path="../../typings/tsd.d.ts"/>
 ///<reference path="../components/components.d.ts"/>
+///<reference path="../services/prerequisite-folder.ts"/>
 ///<reference path="./step.ts" />
 ///<reference path="./document.ts" />
 var ctrlModule = angular.module("hydra.controllers");
@@ -10,6 +11,7 @@ var CreateContentCtrl = (function () {
     function CreateContentCtrl($scope, service, documents) {
         // $scope.name = this.name;
         // this.name = $scope.name;
+        this.service = Service;
         this.documents = [];
         this.addedDocuments = []; // target array
         this.documentsToDelete = [];
@@ -31,7 +33,6 @@ var CreateContentCtrl = (function () {
         // vm is view-model
         $scope.vm = this;
         this.steps.push(new Step());
-        console.log(this.steps[0].location);
     }
     // attaching things to the $scope
     //check for duplicate items
@@ -58,19 +59,19 @@ var CreateContentCtrl = (function () {
         this.addedDocuments = this.addedDocuments.concat(filteredDocuments);
     };
     CreateContentCtrl.prototype.removeStep = function (index) {
-        // var element = this.steps.indexOf(index);
-        console.log("logger", this.steps);
+        if (this.steps.length > 1) {
+        }
         this.steps.splice(index, 1);
     };
     CreateContentCtrl.prototype.addStep = function (index) {
         var step = new Step();
         this.steps.splice(index, 0, step);
-        console.log(index);
-        console.log(doc);
-        console.log("logger", this.steps);
     };
     CreateContentCtrl.prototype.addDocumentToStep = function (stepIndex) {
         this.steps[stepIndex].documents.push(new Document2());
+    };
+    CreateContentCtrl.prototype.submitProcess = function () {
+        this.service.submitProcess(this.name, this.addedDocuments, this.steps);
     };
     CreateContentCtrl.$inject = ["$scope", "service"];
     return CreateContentCtrl;

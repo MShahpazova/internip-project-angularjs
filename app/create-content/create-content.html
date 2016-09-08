@@ -1,239 +1,165 @@
 <!--prerequisites folder-->
-
-<div class="row">
-    <label for="right-label" class="small-2 medium-2 large-2 columns text-right">Name of the process:</label>
-    <input type="text" ng-model="vm.name" placeholder="Type a name of the process" class="small-5 medium-5 large-5 columns">
-</div>
-
-<div class="row">
-    <label for="right-label" class="small-2 medium-2 large-2 columns text-right">Prerequisites</label>
-    <select class="small-2 medium-2 large-2 columns select" ng-options="document as document.name for document in vm.documents" ng-model="vm.selectedDocuments" size="5" multiple>
-         </select>
-    <div class="small-1 columns">
-        <div class="button-group stacked">
-
-            <button class="button tiny" ng-click="vm.addSelected()">
-                Select
-            </button>
-            <button class="button tiny" ng-click="vm.removeDocumentsFromAddedDocuments()">
-                Remove
-            </button>
+<div class="callout">
+    <div class="top-bar" id="second-header">
+        <div class="top-bar-left">
+            <ul class="menu" id="second-header-inner">
+                <li> <i class="fa fa-pencil-square-o" id="pencil" aria-hidden="true"></i></li>
+                <li>
+                    <span id="create-process-title">Creeaza proces</span>
+                </li>
+            </ul>
         </div>
+
     </div>
-    <!--The selected documents appear here-->
-    <table class="small-7">
+    <div class="row">
+        <label for="right-label" class="small-2 medium-2 large-2 columns text-right">Nume proces:</label>
+        <input type="text" ng-model="vm.name" placeholder="Scrie aici numele procesului" class="small-5 medium-5 large-5 columns">
+    </div>
 
+    <div class="row">
+        <label for="right-label" class="small-2 medium-2 large-2 columns text-right">Documente necesare</label>
+        <select class="small-2 medium-2 large-2 columns select" ng-options="document as document.name for document in vm.documents" ng-model="vm.selectedDocuments" size="5" multiple>
+         </select>
+        <div class="small-1 columns">
+            <ul style="list-style:none;">
+                <li>
+                    <button ng-click="vm.addSelected()">
+                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li>
+                    <button ng-click="vm.removeDocumentsFromAddedDocuments()">
+                        <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+                    </button>
+                </li>
+            </ul>
 
+            <div class="button-group stacked">
+            </div>
+        </div>
+        <!--The selected documents appear here-->
+        <table class="small-7">
 
-        <tr ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isSelectedForRemoval}">
-            <td ng-click="vm.markToDelete(doc)">{{doc.name}}</td>
-            <td>{{doc.isSelectedForRemoval}}</td>
-            <td>
-                <label>
+            <tr ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isSelectedForRemoval}">
+                <td ng-click="vm.markToDelete(doc)">{{doc.name}}</td>
+                <td>{{doc.isSelectedForRemoval}}</td>
+                <td>
+                    <label>
                         <input type="checkbox" ng-model="doc.isOriginal">
                         <span class="custom checkbox">Original</span> 
                     </label>
-            </td>
-            <td><label>
+                </td>
+                <td><label>
                         <input type="checkbox" ng-model="doc.needCopy">
                         <span class="custom checkbox">Copy</span>
                     </label>
-                <input class="columns" type="number" ng-model="doc.numberOfCopies" ng-show="doc.needCopy" min="1">
-            </td>
-            <td>
-                <label>
+                    <input class="columns" type="number" ng-model="doc.numberOfCopies" ng-show="doc.needCopy" min="1">
+                </td>
+                <td>
+                    <label>
                         <input type="checkbox" ng-model="doc.needLegalizedCopy">
 
                         <span class="custom checkbox ">Legalized Copy</span>
                     </label>
-                <input class="columns" type="number" ng-model="doc.numberOfLegalizedCopies" ng-show="doc.needLegalizedCopy" min="1">
-            </td>
-        </tr>
-    </table>
-</div>
+                    <input class="columns" type="number" ng-model="doc.numberOfLegalizedCopies" ng-show="doc.needLegalizedCopy" min="1">
+                </td>
+            </tr>
+        </table>
+    </div>
 
-<br>
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-<!--Step-process box-->
-<!--Step-process box-->
-<!--Step-process box-->
-<!--Step-process box-->
-<!--Step-process box-->
-<div ng-repeat="step in vm.steps">
     <!--Step-process box-->
-    <div class="row">
-        <div class="small-2 medium-2 large-2 columns">
-        </div>
-        <!--Container for the box of  the step-process-->
-        <div class="small-10 columns">
-            <div id="container">
-                <div class="row small-12">
-                    <div class="small-1 columns">
-                        <div class="circle-container">
-                            <p> {{$index + 1}} </p>
+    <!--Step-process box-->
+    <!--Step-process box-->
+    <!--Step-process box-->
+    <!--Step-process box-->
+    <div ng-repeat="step in vm.steps">
+        <!--Step-process box-->
+        <div class="row">
+            <div class="small-2 medium-2 large-2 columns">
+            </div>
+            <!--Container for the box of  the step-process-->
+            <div class="small-10 columns">
+                <div id="container">
+                    <div class="row small-11">
+                        <div class="small-1 columns">
+                            <div class="circle-container">
+                                <p> {{$index + 1}} </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="small-1 columns">
-                        <!--circle element where the number of the step-process should appear-->
-                    </div>
-                    <!--First dropdown with a name of the action of the step process-->
-                    <div class="small-2 columns">
+                        <div class="small-1 columns">
+                            <!--circle element where the number of the step-process should appear-->
+                        </div>
+                        <!--First dropdown with a name of the action of the step process-->
+                        <div class="small-2 columns">
 
-                        <select class="select" ng-selected="step.action" ng-model="step.action" title="action">
-                            <option value="" disabled selected>Action</option>
+                            <select class="select" ng-selected="step.action" ng-model="step.action" title="action">
+                            <option value="" disabled selected>Actiune</option>
                             <option ng-repeat="action in vm.actions" value="{{action.id}}" ng-selected="step.action" ng-model="step.action">{{action.name}}</option>
                         </select>
-                    </div>
-                    <!--Second dropdown with documents of the step-process-->
-                    <div class="small-3 columns">
-                        <select ng-repeat="document in step.documents">
+                        </div>
+                        <!--Second dropdown with documents of the step-process-->
+                        <div class="small-3 columns">
+                            <select ng-repeat="document in step.documents">
                             <option value="" disabled selected>Document</option>
                             <option ng-repeat="doc in vm.documents">{{doc.name}}</option>
                         </select>
-                        <button ng-click="vm.addDocumentToStep($index)" class="small-12 small-centered columns"><i class="fa fa-plus" aria-hidden="true"></i></button>
-                    </div>
-
-                    <!--Location of the step-process-->
-                    <div class="small-4 columns">
-                        <select class="select" ng-selected="step.location" ng-model="step.location">
-                        <option value="" disabled selected>Location</option>
-                        <option value="cityHall">CityHall</option>
-                        <option value="cic">CIC</option>
-                        <option value="policeStation">PoliceStation</option>
-                        <option value="cityHall">CityHall</option>
-                        <option value="cic">CIC</option>
-                        <option value="policeStation">PoliceStation</option>
-                        <option value="cic">CIC</option>
-                        <option value="policeStation">PoliceStation</option>
+                            <button ng-click="vm.addDocumentToStep($index)" class="small-12 small-centered columns"><i id="add-document" class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                        </div>
+                        <div class="small-1" columns ng-show="step.documents.length > 1">
+                            <button><i class="fa fa-times" aria-hidden="true"></i></button>
+                        </div>
+                        <!--Location of the step-process-->
+                        <div class="small-3 right columns">
+                            <select class="select" ng-selected="step.location" ng-model="step.location">
+                        <option value="" disabled selected>Locatie</option>
+                        <option value="cityHall">Casa Judeteana de Asigurari de Sanatate Cluj</option>
+                        <option value="cic">Primaria Cluj Napoca</option>
+                        <option value="policeStation">Directia de Evidenta a Populatiei</option>
+                        <option value="cityHall">Inspectoratul de Politie Judetean Cluj</option>
+                         <option value="cityHall">Biblioteca Centrala Universitara "Lucian Blaga" Cluj-Napoca</option>
                     </select>
-                    </div>
-                    <div class="small-1 columns">
+                        </div>
+                        <div class="small-1 columns">
 
-                        <button ng-click="vm.removeStep($index)" class="float-right"> <i class="fa fa-times" aria-hidden="true"></i></button>
+                            <button ng-click="vm.removeStep($index)" class="float-right"> <i class="fa fa-times" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    <br>
+                    <!--Notes for the step-process-->
+                    <div class="row">
+                        <div class="small-1 columns">
+                        </div>
+                        <div class="small-7 columns">
+                            <input type="text" placeholder="Scrie informatii aditionale aici" ng-model="step.note">
+                        </div>
                     </div>
                 </div>
-                <br>
-                <!--Notes for the step-process-->
-                <div class="row">
-                    <div class="small-1 columns">
-                    </div>
-                    <div class="small-7 columns">
-                        <input type="text" placeholder="Type the steps of the process" ng-model="step.note">
-                    </div>
-                </div>
+                <div class="small-1 columns">Maria</div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="small-2 columns">
-        </div>
-        <div class="small-1 columns">
-            <div class="circle-container">
-                <button ng-click="vm.addStep($index + 1)"> <p class="plus-button"><i class="fa fa-plus circle" aria-hidden="true"></i></p></button>
-                <!--<i class="fa fa-minus-circle" aria-hidden="true"></i>-->
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-
-<!--<button class="button" type="button" data-toggle="example-dropdown">Toggle Dropdown</button>
-<div class="dropdown-pane" id="example-dropdown" data-dropdown data-auto-focus="true">
-    Example form in a dropdown.
-    <form>
         <div class="row">
-            <div class="medium-6 columns">
-                <label>Name
-          <input type="text" placeholder="Kirk, James T.">
-        </label>
+            <div class="small-2 columns">
             </div>
-            <div class="medium-6 columns">
-                <label>Rank
-          <input type="text" placeholder="Captain">
-        </label>
+            <div class="small-1 columns">
+                <div class="circle-container">
+                    <button ng-click="vm.addStep($index + 1)"> <p class="plus-button"><i class="fa fa-plus circle" aria-hidden="true"></i></p></button>
+                    <!--<i class="fa fa-minus-circle" aria-hidden="true"></i>-->
+                </div>
             </div>
         </div>
-    </form>
-</div>-->
+    </div>
 
-<!--<ul class="dropdown menu" data-dropdown-menu>
-    <li>
-        <a href="#">Item 1</a>
-        <ul class="menu">
-            <li><a href="#">Item 1A</a></li>
-            <li><a href="#">Item 2</a></li>
-            <li><a href="#">Item 3</a></li>
-            <li><a href="#">Item 4</a></li>
-        </ul>
-    </li>
-</ul>-->
-<!--<ul class="dropdown menu" data-dropdown-menu>
-    <li>
-        <a href="#">Item 1</a>
-        <ul class="menu">
-            <li><a href="#">Item 1A</a></li>
-            <li><a href="#">Item 2</a></li>
-            <li><a href="#">Item 3</a></li>
-            <li><a href="#">Item 4</a></li>
-        </ul>
-    </li>
-</ul>
-
-<button class="button" type="button" data-toggle="example-dropdown-1">Hoverable Dropdown</button>
-<div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
-    <ul>
-        <li><a href="#">This is a link</a></li>
-        <li><a href="#">This is another</a></li>
-        <li><a href="#">Yet another</a></li>
-    </ul>
+    <div class="small-offset-10">
+        <button class="button" ng-click="vm.submitProcess()">Trimite</button>
+    </div>
 </div>
 
-<a href="#" data-dropdown="drop1" class="button dropdown">Dropdown Button</a>
-<br>
-<ul id="drop1" data-dropdown-content class="f-dropdown">
-    <li><a href="#">This is a link</a>
-    </li>
-    <li class="active"><a href="#">This is another</a>
-    </li>
-    <li><a href="#">Yet another</a>
-    </li>
-</ul>
-
-<a class="button" data-dropdown="autoCloseExample" aria-controls="autoCloseExample" aria-expanded="false">Link Dropdown &raquo;</a>
-<ul id="autoCloseExample" class="f-dropdown" data-dropdown-content tabindex="-1" aria-hidden="true" aria-autoclose="true" tabindex="-1">
-    <li><a href="#">This is a link</a></li>
-    <li><a href="#">This is another</a></li>
-    <li><a href="#">Yet another</a></li>
-</ul>-->
-<!--<button class="button" type="button" data-toggle="example-dropdown2">Top Aligned</button>
-
-<div class="" id="example-dropdown2" data-dropdown>
-    Just some junk that needs to be said. Or not. Your choice.
-</div>-->
-
-<!--<ul class="dropdown menu" data-dropdown-menu>
-    <select name="" id="">
-    <option value="" disabled selected>Action</option>
-    <option value="sign">Sign</option>
-    <option value="pay">Pay</option>
-    <option value="submit">Submit</option>
-    </select>
-</ul>-->
-
-<!--<a href="#" class="button" data-dropdown="drop">Link Dropdown &raquo;</a>
-<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content>
-    <li><a href="#">This is a link</a></li>
-    <li><a href="#">This is another</a></li>
-    <li><a href="#">Yet another</a></li>
-</ul>-->
-
-
-
+<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
 
 <script>
     setTimeout(() => {

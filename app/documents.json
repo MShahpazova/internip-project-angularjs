@@ -1,20 +1,70 @@
 [{
-    "name": "Passport",
+    "name": "Act de identitate",
     "documentType": 2,
     "isSelected": true,
-    "numberOfCopies": 3
+    "numberOfCopies": 1
 }, {
-    "name": "National ID",
+    "name": "Act de identitate solicitant",
     "documentType": 2,
     "numberOfCopies": 1,
     "isSelected": true
 }, {
-    "name": "Driving licence",
+    "name": "Act de identitate parinte",
     "documentType": 2,
     "numberOfCopies": 1,
     "isSelected": true
 }, {
-    "name": "Marriage licence",
+    "name": "Act de identitate reprezentant legal",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
+}, {
+    "name": "Act de identitate al proprietarului",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
+}, {
+    "name": "Act de identitate gazduitor",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
+}, {
+    "name": "Pasaport",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
+}, {
+    "name": "Certificat de nastere",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
+}, {
+    "name": "Certificat de nastere copil sub 14 ani",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
+}, {
+    "name": "Certificat casatorie",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
+}, {
+    "name": "Declaratia de consimtamant copil incredintat",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
+}, {
+    "name": "Declaratia de primire in spatiu",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
+}, {
+    "name": "Permisul de conducere",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
+}, {
+    "name": "Contract de inchiriere",
     "documentType": 2,
     "numberOfCopies": 1,
     "isSelected": true
