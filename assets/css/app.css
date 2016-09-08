@@ -12,6 +12,9 @@
     padding-bottom: 50px;
 }
 
+.overflow {
+    overflow: auto;
+}
 #second-header {
     background-color: #373942;
     /*/*padding: 0 0 0.8rem 0;/*/

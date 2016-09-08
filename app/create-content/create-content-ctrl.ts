@@ -52,9 +52,9 @@ class CreateContentCtrl {
     }
     removeStep(index) {
         if (this.steps.length > 1) {
-            
+         this.steps.splice(index, 1);            
         }
-        this.steps.splice(index, 1);
+
     }
 
 
@@ -67,9 +67,9 @@ class CreateContentCtrl {
         this.steps[stepIndex].documents.push(new Document2());
     }
 
-    submitProcess() {
-        this.service.submitProcess(this.name, this.addedDocuments,this.steps);
-    }
+    // submitProcess() {
+    //     this.service.submitProcess(this.name, this.addedDocuments,this.steps);
+    // }
 
     constructor($scope, service, documents) {
 

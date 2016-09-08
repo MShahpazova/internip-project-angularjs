@@ -18,7 +18,7 @@
 
     <div class="row">
         <label for="right-label" class="small-2 medium-2 large-2 columns text-right">Documente necesare</label>
-        <select class="small-2 medium-2 large-2 columns select" ng-options="document as document.name for document in vm.documents" ng-model="vm.selectedDocuments" size="5" multiple>
+        <select class="overflow small-2 medium-2 large-2 columns select" ng-options="document as document.name for document in vm.documents" ng-model="vm.selectedDocuments" size="5" multiple>
          </select>
         <div class="small-1 columns">
             <ul style="list-style:none;">
@@ -85,17 +85,14 @@
             <!--Container for the box of  the step-process-->
             <div class="small-10 columns">
                 <div id="container">
-                    <div class="row small-11">
+                    <div class="row">
                         <div class="small-1 columns">
                             <div class="circle-container">
                                 <p> {{$index + 1}} </p>
                             </div>
                         </div>
-                        <div class="small-1 columns">
-                            <!--circle element where the number of the step-process should appear-->
-                        </div>
                         <!--First dropdown with a name of the action of the step process-->
-                        <div class="small-2 columns">
+                        <div class="small-3 columns">
 
                             <select class="select" ng-selected="step.action" ng-model="step.action" title="action">
                             <option value="" disabled selected>Actiune</option>
@@ -108,10 +105,10 @@
                             <option value="" disabled selected>Document</option>
                             <option ng-repeat="doc in vm.documents">{{doc.name}}</option>
                         </select>
-                            <button ng-click="vm.addDocumentToStep($index)" class="small-12 small-centered columns"><i id="add-document" class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                            <button ng-click="vm.addDocumentToStep($index)" class="small-12 smfa fall-centered columns"><i id="add-document" class="fa fa-plus-circle" aria-hidden="true"></i></button>
                         </div>
-                        <div class="small-1" columns ng-show="step.documents.length > 1">
-                            <button><i class="fa fa-times" aria-hidden="true"></i></button>
+                        <div class="small-1 columns">
+                            <button ng-show="step.documents.length > 1"><i class="fa fa-times" aria-hidden="true" ></i></button>
                         </div>
                         <!--Location of the step-process-->
                         <div class="small-3 right columns">
@@ -139,7 +136,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="small-1 columns">Maria</div>
             </div>
         </div>
         <div class="row">
