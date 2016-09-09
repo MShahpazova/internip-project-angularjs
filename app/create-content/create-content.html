@@ -20,21 +20,18 @@
         <label for="right-label" class="small-2 medium-2 large-2 columns text-right">Documente necesare</label>
         <select class="overflow small-2 medium-2 large-2 columns select" ng-options="document as document.name for document in vm.documents" ng-model="vm.selectedDocuments" size="5" multiple>
          </select>
-        <div class="small-1 columns">
-            <ul style="list-style:none;">
-                <li>
-                    <button ng-click="vm.addSelected()">
-                        <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-                    </button>
-                </li>
-                <li>
-                    <button ng-click="vm.removeDocumentsFromAddedDocuments()">
-                        <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
-                    </button>
-                </li>
-            </ul>
+        <div class="small-2 columns">
 
             <div class="button-group stacked">
+                <button class="button button--border" ng-click="vm.addSelected()">
+                        <span>&raquo;</span>
+                        <!--<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>-->
+                    </button>
+
+                <button class="button button--border" ng-click="vm.removeDocumentsFromAddedDocuments()">
+                        <span>&laquo;</span>
+                        <!--<i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>-->
+                    </button>
             </div>
         </div>
         <!--The selected documents appear here-->

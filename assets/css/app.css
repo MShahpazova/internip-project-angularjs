@@ -15,6 +15,7 @@
 .overflow {
     overflow: auto;
 }
+
 #second-header {
     background-color: #373942;
     /*/*padding: 0 0 0.8rem 0;/*/
@@ -134,7 +135,7 @@ i .fa fa-plus-circle #add-step-button {
 }
 
 #nav-bell {
-    font-size: 3em;
+    font-size: 1.7em;
 }
 
 #pencil {
@@ -203,6 +204,17 @@ i .fa fa-plus-circle #add-step-button {
     border-radius: 25px;
     color: thin 0.2px red;
     /*background: fuchsia;*/
+}
+
+.button--border {
+    background: none;
+    border: 1px solid #373942;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.button--border:hover {
+    background: #373942
 }
 
 .data-dropdown-content > li.active {
