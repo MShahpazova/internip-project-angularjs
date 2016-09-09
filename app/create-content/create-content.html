@@ -42,7 +42,7 @@
 
             <tr ng-repeat="doc in vm.addedDocuments" ng-class="{selected: doc.isSelectedForRemoval}">
                 <td ng-click="vm.markToDelete(doc)">{{doc.name}}</td>
-                <td>{{doc.isSelectedForRemoval}}</td>
+                <!--<td>{{doc.isSelectedForRemoval}}</td>-->
                 <td>
                     <label>
                         <input type="checkbox" ng-model="doc.isOriginal">
@@ -53,7 +53,7 @@
                         <input type="checkbox" ng-model="doc.needCopy">
                         <span class="custom checkbox">Copy</span>
                     </label>
-                    <input class="columns" type="number" ng-model="doc.numberOfCopies" ng-show="doc.needCopy" min="1">
+                    <input class="small-3 columns" type="number" ng-model="doc.numberOfCopies" ng-show="doc.needCopy" min="1">
                 </td>
                 <td>
                     <label>
@@ -61,7 +61,7 @@
 
                         <span class="custom checkbox ">Legalized Copy</span>
                     </label>
-                    <input class="columns" type="number" ng-model="doc.numberOfLegalizedCopies" ng-show="doc.needLegalizedCopy" min="1">
+                    <input class="small-3 columns" type="number" ng-model="doc.numberOfLegalizedCopies" ng-show="doc.needLegalizedCopy" min="1">
                 </td>
             </tr>
         </table>
@@ -72,10 +72,6 @@
     <br>
     <br>
 
-    <!--Step-process box-->
-    <!--Step-process box-->
-    <!--Step-process box-->
-    <!--Step-process box-->
     <!--Step-process box-->
     <div ng-repeat="step in vm.steps">
         <!--Step-process box-->

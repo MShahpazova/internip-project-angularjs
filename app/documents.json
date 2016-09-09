@@ -68,4 +68,15 @@
     "documentType": 2,
     "numberOfCopies": 1,
     "isSelected": true
+}, {
+    "name": "Taxa eliberare permis auto",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
+}, {
+    "name": "Taxa de inscriere",
+    "documentType": 2,
+    "numberOfCopies": 1,
+    "isSelected": true
 }]
+
