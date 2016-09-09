@@ -210,7 +210,15 @@ i .fa fa-plus-circle #add-step-button {
     background: none;
     border: 1px solid #373942;
     color: #333;
-    margin: 0 0 10px 0;
+    margin: 0 0 10px 0 !important;
+}
+
+.remove-step {
+    font-size: 3.5em;
+}
+
+.submit-button {
+    background: #373942;
 }
 
 .button--border:hover {

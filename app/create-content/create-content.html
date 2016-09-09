@@ -98,7 +98,7 @@
                             <option value="" disabled selected>Document</option>
                             <option ng-repeat="doc in vm.documents">{{doc.name}}</option>
                         </select>
-                            <button ng-click="vm.addDocumentToStep($index)" class="small-12 smfa fall-centered columns"><i id="add-document" class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                            <button ng-click="vm.addDocumentToStep($index)" class="small-12 small-centered columns"><i id="add-document" class="fa fa-plus-circle" aria-hidden="true"></i></button>
                         </div>
                         <div class="small-1 columns">
                             <button ng-show="step.documents.length > 1"><i class="fa fa-times" aria-hidden="true" ></i></button>
@@ -135,16 +135,13 @@
             <div class="small-2 columns">
             </div>
             <div class="small-1 columns">
-                <div class="circle-container">
-                    <button ng-click="vm.addStep($index + 1)"> <p class="plus-button"><i class="fa fa-plus circle" aria-hidden="true"></i></p></button>
-                    <!--<i class="fa fa-minus-circle" aria-hidden="true"></i>-->
-                </div>
+                <button ng-click="vm.addStep($index + 1)"> <i class="fa fa-plus-circle remove-step" aria-hidden="true"></i></button>
             </div>
         </div>
     </div>
 
     <div class="small-offset-10">
-        <button class="button" ng-click="vm.submitProcess()">Trimite</button>
+        <button class="button submit-button" ng-click="vm.submitProcess()">Trimite</button>
     </div>
 </div>
 
