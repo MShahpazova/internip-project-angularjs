@@ -8,6 +8,9 @@ var ctrlModule = angular.module("hydra.controllers");
 //todo: number of copies to appear only when document isn't an original
 //todo: should i add every property I set as a field in the class of the controller 
 var CreateContentCtrl = (function () {
+    // submitProcess() {
+    //     this.service.submitProcess(this.name, this.addedDocuments,this.steps);
+    // }
     function CreateContentCtrl($scope, service, documents) {
         // $scope.name = this.name;
         // this.name = $scope.name;
@@ -60,8 +63,8 @@ var CreateContentCtrl = (function () {
     };
     CreateContentCtrl.prototype.removeStep = function (index) {
         if (this.steps.length > 1) {
+            this.steps.splice(index, 1);
         }
-        this.steps.splice(index, 1);
     };
     CreateContentCtrl.prototype.addStep = function (index) {
         var step = new Step();
@@ -69,9 +72,6 @@ var CreateContentCtrl = (function () {
     };
     CreateContentCtrl.prototype.addDocumentToStep = function (stepIndex) {
         this.steps[stepIndex].documents.push(new Document2());
-    };
-    CreateContentCtrl.prototype.submitProcess = function () {
-        this.service.submitProcess(this.name, this.addedDocuments, this.steps);
     };
     CreateContentCtrl.$inject = ["$scope", "service"];
     return CreateContentCtrl;
